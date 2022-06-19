@@ -17,7 +17,7 @@ export default function Home() {
 
       
         
-      <Featured/>
+      <Featured/> 
 
 
       <section id="reviews" className="w-full h-full lg:min-h-screen bg-black">

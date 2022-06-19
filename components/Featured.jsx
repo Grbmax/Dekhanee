@@ -8,7 +8,6 @@ const Featured = () => {
     "/img/1.jpg",
     "/img/2.jpg",
     "/img/3.jpg",
-
   ];
 
   const handleArrow = (direction) =>{
