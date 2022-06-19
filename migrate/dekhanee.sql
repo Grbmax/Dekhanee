@@ -1,11 +1,11 @@
-CREATE DATABASE dekhanee;
+-- CREATE DATABASE dekhanee;
 
-USE DATABASE dekhanee;
+USE dekhanee;
 
 CREATE TABLE user_login (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     mail_id varchar(50) UNIQUE,
-    u_pwd VARCHAR(255),
+    u_pwd VARCHAR(255)
 );
 
 CREATE TABLE user_type (
@@ -36,12 +36,29 @@ CREATE TABLE product_information (
     p_type VARCHAR(50)
 );
 
+CREATE TABLE shopping_session (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    u_id INT,
+    total DECIMAL(10,2),
+    created_at DATETIME,
+    modified_at DATETIME,
+    FOREIGN KEY (u_id) REFERENCES user_type (id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE inventory_details (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    inv_address VARCHAR(50),
+    city VARCHAR(20),
+    pincode VARCHAR(20),
+    ph_no VARCHAR(20)
+);
+
 CREATE TABLE product_details (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     p_sku INT,
     p_description VARCHAR(100),
     p_color VARCHAR(30),
-    p_MSRP DECIMAL(10,2)
+    p_MSRP DECIMAL(10,2),
     p_SP DECIMAL(10,2),
     p_category VARCHAR(20),
     p_status TINYINT,
@@ -62,6 +79,16 @@ CREATE TABLE cart (
     FOREIGN KEY (sesh_id) REFERENCES shopping_session (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+CREATE TABLE payment_details (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    cart_id INT,
+    amount DECIMAL(10,2),
+    payment_status VARCHAR(20),
+    created_at DATETIME,
+    modified_at DATETIME,
+    FOREIGN KEY (cart_id) REFERENCES cart (id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
 CREATE TABLE cart_total (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     u_id INT,
@@ -71,25 +98,6 @@ CREATE TABLE cart_total (
     payment_id INT,
     FOREIGN KEY (u_id) REFERENCES user_type (id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (payment_id) REFERENCES payment_details (id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-CREATE TABLE shopping_session (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    u_id INT,
-    total DECIMAL(10,2),
-    created_at DATETIME,
-    modified_at DATETIME,
-    FOREIGN KEY (u_id) REFERENCES user_type (id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-CREATE TABLE payment_details (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    cart_id INT,
-    amount DECIMAL(10,2),
-    payment_status VARCHAR(20),
-    created_at DATETIME,
-    modified_at DATETIME,
-    FOREIGN KEY (cart_id) REFERENCES cart (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 INSERT INTO user_login (mail_id, u_pwd) VALUES ('user@gmail.com', 'dekhanee');
