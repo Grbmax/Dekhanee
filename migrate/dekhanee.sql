@@ -10,8 +10,8 @@ CREATE TABLE user_login (
 
 CREATE TABLE user_type (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    u_type VARCHAR(50),
     u_id int,
+    u_type VARCHAR(50),
     FOREIGN KEY (u_id) REFERENCES user_login (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -93,4 +93,6 @@ CREATE TABLE payment_details (
 );
 
 INSERT INTO user_login (mail_id, u_pwd) VALUES ('user@gmail.com', 'dekhanee');
-INSERT INTO user_type (u_type,)
+INSERT INTO user_type (u_id, u_type) VALUES ('1', 'user'); 
+INSERT INTO user_information (u_id, ph_no, address_line1, city, address_state, pincode, country, dob)
+VALUES ('1', '91-8007035533', 'Sinhgad', 'Pune', 'Maharashtra', '411041', 'India', '2022-06-22');
