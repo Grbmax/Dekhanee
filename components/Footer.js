@@ -1,6 +1,6 @@
 function Footer() {
     return (
-      <div className='bg-black flex justify-between w-full items-center  bottom-0 left-0 '>
+      <div className='bg-orange-900 flex justify-between w-full items-center  bottom-0 left-0 '>
   
           
           <div>
