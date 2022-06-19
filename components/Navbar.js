@@ -1,8 +1,5 @@
-
-
 function Navbar() {
   return (
-
 
     <div className='bg-gray-700 flex justify-between px-6 h-32 items-center'>
       
