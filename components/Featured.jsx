@@ -8,7 +8,6 @@ const Featured = () => {
     "/ear-rings/1.jpeg",
     "/ear-rings/2.jpeg",
     "/ear-rings/3.jpeg",
-
   ];
 
   const handleArrow = (direction) =>{

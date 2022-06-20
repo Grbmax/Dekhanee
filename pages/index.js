@@ -22,7 +22,7 @@ export default function Home() {
       
          <Navbar/> 
         
-      <Featured/>
+      <Featured/> 
 
 <div className='bg-[#182129]'>
       <section id="reviews" className="w-full h-full lg:min-h-screen">
