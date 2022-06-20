@@ -10,7 +10,7 @@ const Navbar = () => {
         <>
         <div className="flex-1">
 
-            <nav className=" top-0 flex items-center h-32 w-full text-sm bg-[#BB9457] px-2 md:px-5 lg:px-10">
+            <nav className=" top-0 flex items-center h-32 w-full text-sm bg-[#99582A] px-2 md:px-5 lg:px-10">
 
                 <div className="dropdown">
                     <button className="bg-transparent text-white font-semibold py-2 px-4 rounded inline-flex items-center">
