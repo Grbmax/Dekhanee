@@ -1,10 +1,16 @@
 import Link from "next/link";
+import React from "react";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
+import { FiSearch } from "react-icons/fi";
 
 const Navbar = () => {
 
     return (
         <>
-            <nav className=" top-0 flex items-center h-32 w-full text-sm bg-orange-900 px-2 md:px-5 lg:px-10">
+        <div className="flex-1">
+
+            <nav className=" top-0 flex items-center h-32 w-full text-sm bg-[#BB9457] px-2 md:px-5 lg:px-10">
 
                 <div className="dropdown">
                     <button className="bg-transparent text-white font-semibold py-2 px-4 rounded inline-flex items-center">
@@ -23,10 +29,25 @@ const Navbar = () => {
                     <Link href="/"><h1 className="text-white text-center font-bold">LOGO</h1></Link>
                 </div>
 
-                <div>
-                    <Link href="/cart"><a className="text-white">CART</a></Link>
+
+                <div className="flex ">
+
+                    <Link href="/account">
+                    <AiOutlineUser className=" text-2xl text-white cursor-pointer hover:text-yellow-600" />
+                    </Link>
+                    
+                    <Link href="/">
+                    <FiSearch className=" text-2xl text-white cursor-pointer hover:text-yellow-600" />
+                    </Link>
+                
+                
+                    <Link href="/cart">
+                    <AiOutlineShoppingCart className="text-2xl text-white cursor-pointer hover:text-yellow-600" />
+                    </Link>
                 </div>
+            
             </nav>
+        </div>
         </>
     );
 }

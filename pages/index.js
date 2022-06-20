@@ -1,5 +1,8 @@
 import Head from 'next/head'
 import Featured from '../components/Featured'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+
 
 
 export default function Home() {
@@ -11,49 +14,54 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/*<div className='bg-black h-10 py-2.5'>
+
+      <div className='bg-black h-10 py-2.5'>
         <p className=' font-mono font-light text-sm text-white text-center tracking-widest'>FREE SHIPPING ON ALL ORDERS ABOVE ₹1299</p>
-      </div>*/}
+      </div>
 
       
+         <Navbar/> 
         
       <Featured/>
 
-
-      <section id="reviews" className="w-full h-full lg:min-h-screen bg-black">
+<div className='bg-[#283845]'>
+      <section id="reviews" className="w-full h-full lg:min-h-screen">
           <div className="flex flex-col gap-5 items-center justify-center font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
             <h1 data-aos="fade-up" className="text-5xl md:text-6xl mb-5 text-ted-red serif">Certified Reviews</h1>
           </div>
-        </section>
-      <section id="reviews" className="w-full h-full lg:min-h-screen bg-black">
+        
+      <section id="reviews" className="w-full h-full lg:min-h-screen">
           <div className="flex flex-col gap-5 items-center justify-center font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
             <h1 data-aos="fade-up" className="text-5xl md:text-6xl mb-5 text-ted-red serif">Product Categories</h1>
           </div>
         </section>
      
-      <section id="reviews" className="w-full h-full lg:min-h-screen bg-black">
+      <section id="reviews" className="w-full h-full lg:min-h-screen">
           <div className="flex flex-col gap-5 items-center justify-center font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
             <h1 data-aos="fade-up" className="text-5xl md:text-6xl mb-5 text-ted-red serif">Highlights</h1>
           </div>
         </section>
 
-      <section id="reviews" className="w-full h-full lg:min-h-screen bg-black">
+      <section id="reviews" className="w-full h-full lg:min-h-screen">
           <div className="flex flex-col gap-5 items-center justify-center font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
             <h1 data-aos="fade-up" className="text-5xl md:text-6xl mb-5 text-ted-red serif">FAQs</h1>
           </div>
         </section>
 
-      <section id="reviews" className="w-full h-full lg:min-h-screen bg-black">
+      <section id="reviews" className="w-full h-full lg:min-h-screen">
           <div className="flex flex-col gap-5 items-center justify-center font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
             <h1 data-aos="fade-up" className="text-5xl md:text-6xl mb-5 text-ted-red serif">Social Media</h1>
           </div>
         </section>
         
-      <section id="reviews" className="w-full h-full lg:min-h-screen bg-black">
+      <section id="reviews" className="w-full h-full lg:min-h-screen">
           <div className="flex flex-col gap-5 items-center justify-center font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
             <h1 data-aos="fade-up" className="text-5xl md:text-6xl mb-5 text-ted-red serif">Jewellery Haul</h1>
           </div>
         </section>
+        </section>
+        </div>
+        <Footer/>
 
     </>
   )
