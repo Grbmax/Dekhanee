@@ -24,7 +24,7 @@ export default function Home() {
         
       <Featured/>
 
-<div className='bg-[#283845]'>
+<div className='bg-[#182129]'>
       <section id="reviews" className="w-full h-full lg:min-h-screen">
           <div className="flex flex-col gap-5 items-center justify-center font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
             <h1 data-aos="fade-up" className="text-5xl md:text-6xl mb-5 text-ted-red serif">Certified Reviews</h1>

@@ -26,7 +26,7 @@ const Navbar = () => {
                   </div>
                   
                 <div className="flex-1 p-5">
-                    <Link href="/"><h1 className="text-white text-center font-bold">LOGO</h1></Link>
+                    <Link href="/"><h1 className="text-white text-center font-bold"></h1></Link>
                 </div>
 
 

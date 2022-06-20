@@ -48,15 +48,15 @@ function Footer() {
 						<span className="text-[#FFE6A7]">The Beautiful</span>
 						</p>
 						<div className="flex gap-6 pb-5">
-							<FaInstagram className="text-2xl cursor-pointer hover:text-blue-600" />
-							<FaFacebook className="text-2xl cursor-pointer hover:text-blue-600" />
+						<FaInstagram className="text-2xl cursor-pointer hover:text-blue-600" />
+						<Link href='https://www.facebook.com/Dekhanee'><FaFacebook className="text-2xl cursor-pointer hover:text-blue-600" /></Link>
               				<FaWhatsapp className="text-2xl cursor-pointer hover:text-blue-600" />
 						</div>
 					</ul>
 				</div>
 				<div className="p-5">
 					<ul>
-						<p className="text-black font-bold text-2xl pb-4">Product</p>
+						<p className="text-black font-bold text-2xl pb-4">Products</p>
 						<li className="text-gray-900 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
 							Ear Rings
 						</li>
@@ -77,22 +77,16 @@ function Footer() {
 					<ul>
 						<p className="text-black font-bold text-2xl pb-4">Support</p>
 						<li className="text-gray-900 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
-            			<Link href='/contact'> Contact </Link>
-						</li>
-						<li className="text-gray-900 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
-							Support Portals
-						</li>
-						<li className="text-gray-900 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
-							Videos
+            			<Link href='/contact'> Contact Us </Link>
 						</li>
 					</ul>
 				</div>
 			</div>
 			<div className="flex flex-col justify-center items-center text-center  p-5 bg-[#BB9457]">
 				<h1 className=" text-gray-800 font-semibold">
-					© 2021-2022 All rights reserved | Build with ❤ by{" "}
+					© 2021-2022 All rights reserved | Built with ❤ by{" "}
 					<span className="hover:text-blue-600 font-semibold cursor-pointer">
-          Dekhanee{" "}
+        			Project Aspects {" "}
 					</span>
 				</h1>
 			</div>
