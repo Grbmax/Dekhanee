@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Featured from '../components/Featured'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Image from 'next/image'
 
 
 
@@ -17,48 +18,59 @@ export default function Home() {
 
       {/*<div className='bg-[#468189] h-10 py-2.5'>
         <p className=' font-mono font-light text-sm text-white text-center tracking-widest'>FREE SHIPPING ON ALL ORDERS ABOVE ₹1299</p>
-  </div>*/}
+      </div>*/}
 
 
       <Navbar />
 
       <Featured />
 
-      <div className='bg-[#9DBEBB]'>
-        <section id="reviews" className="w-full h-full lg:min-h-screen">
+      <div className='bg-[#131414]'>
+        <section id="" className="w-full h-full lg:min-h-screen">
           <div className="flex flex-col gap-5 items-center justify-topcenter font-sans text-[#031926] h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
-            <h1 data-aos="fade-up" className="md:text-3xl mb-5 text-ted-red serif">Certified Reviews</h1>
+            <h1 data-aos="fade-up" className="text-5xl md:text-4.4xl mb-5 text-ted-red serif text-white text-center py-6">Certified Reviews</h1>
           </div>
 
-          <section id="reviews" className="w-full h-full lg:min-h-screen bg-black">
-            <div className="flex flex-col gap-5 items-center justify-topcenter font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
-              <h1 data-aos="fade-up" className="text-5xl md:text-6xl mb-5 text-ted-red serif">Product Categories</h1>
+          <section id="productcat" className="w-full h-full lg:min-h-screen">
+            <div className="p-6">
+              <p className='text-5xl md:text-4.4xl mb-5 text-ted-red serif text-white text-center py-6'>Product Categories</p>
+             {/**/}
+              <div className='grid grid-cols-3 gap-10 mx-28 justify-items-center'>  
+              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+                  <Image src="/ear-rings/1.jpeg" width="300" height="350" />
+              </button>
+              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+                  <Image src="/ear-rings/1.jpeg" width="300" height="350" />
+              </button>
+              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+                  <Image src="/ear-rings/1.jpeg" width="300" height="350" />
+              </button>
+              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+                  <Image src="/ear-rings/1.jpeg" width="300" height="350" />
+              </button>
+              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+                  <Image src="/ear-rings/1.jpeg" width="300" height="350" />
+              </button>
+              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+                  <Image src="/ear-rings/1.jpeg" width="300" height="350" />
+              </button>          
+              </div>
             </div>
           </section>
 
-          <section id="reviews" className="w-full h-full lg:min-h-screen">
-            <div className="flex flex-col gap-5 items-center justify-topcenter font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
-              <h1 data-aos="fade-up" className="text-5xl md:text-4.4xl mb-5 text-ted-red serif">Highlights</h1>
+          <section id="highlights" className="w-full h-full lg:min-h-screen">
+            <div className="p-6">
+            <p className='text-5xl md:text-4.4xl mb-5 text-ted-red serif text-white text-center py-6'>Highlights</p>
             </div>
           </section>
 
-          <section id="reviews" className="w-full h-full lg:min-h-screen">
-            <div className="flex flex-col gap-5 items-center justify-topcenter font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
-              <h1 data-aos="fade-up" className="text-5xl md:text-3xl mb-5 text-ted-red serif">FAQs</h1>
+          <section id="faqs" className="w-full h-full lg:min-h-screen">
+            <div className="p-6">
+            <p className='text-5xl md:text-4.4xl mb-5 text-ted-red serif text-white text-center py-6'>FAQs</p>
             </div>
           </section>
 
-          <section id="reviews" className="w-full h-full lg:min-h-screen">
-            <div className="flex flex-col gap-5 items-center justify-center font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
-              <h1 data-aos="fade-up" className="text-5xl md:text-6xl mb-5 text-ted-red serif">Social Media</h1>
-            </div>
-          </section>
-
-          <section id="reviews" className="w-full h-full lg:min-h-screen">
-            <div className="flex flex-col gap-5 items-center justify-center font-sans text-white h-full lg:min-h-screen mx-auto w-full p-2 md:w-1/2">
-              <h1 data-aos="fade-up" className="text-5xl md:text-6xl mb-5 text-ted-red serif">Jewellery Haul</h1>
-            </div>
-          </section>
+          
         </section>
       </div>
       <Footer />
