@@ -10,33 +10,33 @@ const Featured = () => {
     "/ear-rings/3.jpeg",
   ];
 
-  const handleArrow = (direction) =>{
-      if(direction==="l"){
-          setIndex(index !== 0 ? index-1 : 2)
-      }
-      if(direction==="r"){
-          setIndex(index !== 2 ? index+1 : 0)
-      }
+  const handleArrow = (direction) => {
+    if (direction === "l") {
+      setIndex(index !== 0 ? index - 1 : 2)
+    }
+    if (direction === "r") {
+      setIndex(index !== 2 ? index + 1 : 0)
+    }
   }
 
   return (
     <div className={styles.container}>
-      <div className={styles.arrowContainer} style={{ left: 0 }} onClick={()=>handleArrow("l")}>
-        
-        <Image src="/" alt="" layout="fill" objectFit="contain"/>
-        
+      <div className={styles.arrowContainer} style={{ left: 0 }} onClick={() => handleArrow("l")}>
+
+        <Image src="/" alt="" layout="fill" objectFit="contain" />
+
       </div>
-      <div className={styles.wrapper} style={{transform:`translateX(${-100*index}vw)`}}>
+      <div className={styles.wrapper} style={{ transform: `translateX(${-100 * index}vw)` }}>
         {images.map((img, i) => (
           <div className={styles.imgContainer} key={i}>
-            
+
             <Image src={img} alt="" layout="fill" objectFit="contain" />
-            
+
           </div>
         ))}
       </div>
-      <div className={styles.arrowContainer} style={{ right: 0 }} onClick={()=>handleArrow("r")}>
-        <Image src="/" layout="fill" alt="" objectFit="contain"/>
+      <div className={styles.arrowContainer} style={{ right: 0 }} onClick={() => handleArrow("r")}>
+        <Image src="/" layout="fill" alt="" objectFit="contain" />
       </div>
     </div>
   );

@@ -10,9 +10,9 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="flex-1">
+            <div className="fixed shadow-md  z-50 w-full  flex justify-between items-center">
 
-                <nav className=" top-0 flex items-center h-32 w-full text-sm bg-[#F4E9CD] px-2 md:px-5 lg:px-10">
+                <nav className=" top-0 flex items-center h-91px w-full text-sm bg-[#F4E9CD] px-5 md:px-5 lg:px-10">
 
                     <div className="dropdown">
                         <button className="bg-transparent text-[#031926] font-semibold py-2 px-4 rounded inline-flex items-center">
@@ -27,26 +27,25 @@ const Navbar = () => {
                         </button>
                     </div>
 
-                    <div className="flex-1 p-5">
+                    <div className="flex-1 py-4">
                         <Link href="/"><div className="text-center cursor-pointer"><Image
                             src={logo}
                             alt="Picture of the author"
-                            width="130px"
-                            height="130px"
+                            width="80px"
+                            height="80px"
                         /></div></Link>
                     </div>
 
 
-                    <div className="flex ">
-
-                        <Link href="/account">
-                            <AiOutlineUser className=" text-2xl text-[#031926] cursor-pointer hover:text-yellow-600"  />
-                        </Link>
+                    <div className="flex items-center space-x-4 px-4 justify-between">
 
                         <Link href="/">
                             <FiSearch className=" text-2xl text-[#031926] cursor-pointer hover:text-yellow-600" />
                         </Link>
 
+                        <Link href="/account">
+                            <AiOutlineUser className=" text-2xl text-[#031926] cursor-pointer hover:text-yellow-600" />
+                        </Link>
 
                         <Link href="/cart">
                             <AiOutlineShoppingCart className="text-2xl text-[#031926] cursor-pointer hover:text-yellow-600" />
