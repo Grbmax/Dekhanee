@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Featured from '../components/Featured'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Slideshow from '../components/Slideshow'
 import Image from 'next/image'
 
 
@@ -15,15 +16,11 @@ export default function Home() {
         <link rel="icon" href="/Dekhanee-Favicon.png" />
       </Head>
 
-
-      {/*<div className='bg-[#468189] h-10 py-2.5'>
-        <p className=' font-mono font-light text-sm text-white text-center tracking-widest'>FREE SHIPPING ON ALL ORDERS ABOVE ₹1299</p>
-      </div>*/}
-
-
       <Navbar />
 
-      <Featured />
+      <div className='slideshow'>
+        <Slideshow />
+      </div>
 
       <div className='bg-[#131414]'>
         <section id="" className="w-full h-full lg:min-h-screen">
@@ -34,43 +31,43 @@ export default function Home() {
           <section id="productcat" className="w-full h-full lg:min-h-screen">
             <div className="p-6">
               <p className='text-5xl md:text-4.4xl mb-5 text-ted-red serif text-white text-center py-6'>Product Categories</p>
-             {/**/}
-              <div className='grid grid-cols-3 gap-10 mx-28 justify-items-center'>  
-              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+              {/**/}
+              <div className='grid grid-cols-3 gap-10 mx-28 justify-items-center'>
+                <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
                   <Image src="/ear-rings/1.jpeg" width="300" height="350" />
-              </button>
-              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+                </button>
+                <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
                   <Image src="/ear-rings/1.jpeg" width="300" height="350" />
-              </button>
-              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+                </button>
+                <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
                   <Image src="/ear-rings/1.jpeg" width="300" height="350" />
-              </button>
-              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+                </button>
+                <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
                   <Image src="/ear-rings/1.jpeg" width="300" height="350" />
-              </button>
-              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+                </button>
+                <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
                   <Image src="/ear-rings/1.jpeg" width="300" height="350" />
-              </button>
-              <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
+                </button>
+                <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 ">
                   <Image src="/ear-rings/1.jpeg" width="300" height="350" />
-              </button>          
+                </button>
               </div>
             </div>
           </section>
 
           <section id="highlights" className="w-full h-full lg:min-h-screen">
             <div className="p-6">
-            <p className='text-5xl md:text-4.4xl mb-5 text-ted-red serif text-white text-center py-6'>Highlights</p>
+              <p className='text-5xl md:text-4.4xl mb-5 text-ted-red serif text-white text-center py-6'>Highlights</p>
             </div>
           </section>
 
           <section id="faqs" className="w-full h-full lg:min-h-screen">
             <div className="p-6">
-            <p className='text-5xl md:text-4.4xl mb-5 text-ted-red serif text-white text-center py-6'>FAQs</p>
+              <p className='text-5xl md:text-4.4xl mb-5 text-ted-red serif text-white text-center py-6'>FAQs</p>
             </div>
           </section>
 
-          
+
         </section>
       </div>
       <Footer />
