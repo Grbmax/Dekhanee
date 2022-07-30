@@ -14,8 +14,8 @@ const Slideshow = () => {
 	const zoomInProperties = {
 		indicators: true,
 		scale: 1,
-		duration: 1000,
-		transitionDuration: 200,
+		duration: 3000,
+		transitionDuration: 300,
 		infinite: true,
 		prevArrow: (
 			<div style={{ width: "30px", marginRight: "-30px", cursor: "pointer" }}>
