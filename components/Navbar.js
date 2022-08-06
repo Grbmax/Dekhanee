@@ -10,7 +10,10 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="fixed shadow-md  z-50 w-full  flex justify-between items-center">
+		<div className='bg-[#468189] h-full py-2.5'>
+		<p className=' font-mono font-light text-sm text-white text-center tracking-widest'>FREE SHIPPING ON ALL ORDERS ABOVE ₹1299</p>
+	  </div>
+            <div className="shadow-md  z-50 w-full  flex justify-between items-center">
 
                 <nav className=" top-0 flex items-center h-91px w-full text-sm bg-[#F4E9CD] px-5 md:px-5 lg:px-10">
 
@@ -73,11 +76,11 @@ function Navbar() {
 		<div>
 			
 			<nav className=" shadow-sm fixed w-full z-10 bg-[#F4E9CD]">
-			<div className='bg-[#468189] h-10 py-2.5'>
-        <p className=' font-mono font-light text-sm text-white text-center tracking-widest'>FREE SHIPPING ON ALL ORDERS ABOVE ₹1299</p>
-      </div>
-				<div className="w-full">
-					<div className="flex items-center h-20 w-full">
+			<div className='bg-[#131414] h-full py-2.5'>
+        		<p className=' font-mono font-light text-sm text-white text-center tracking-widest'>FREE SHIPPING ON ALL ORDERS ABOVE ₹1299</p>
+      		</div>
+				<div className="w-full ">
+					<div className="flex items-center h-20 w-full ">
 						<div className="flex items-center  mx-20  justify-between w-full">
                         
 							<div className="flex justify-center text-left flex-shrink-0 ">
@@ -90,8 +93,9 @@ function Navbar() {
 							<div className="hidden md:block">
 								<div className="ml-10 flex items-baseline space-x-4">
 									<Link
-										activeClass="Home"
-										to="about"
+										//href="/home"
+										activeClass="/index"
+										to="/about"
 										smooth={true}
 										offset={50}
 										duration={500}
@@ -100,8 +104,9 @@ function Navbar() {
 										Home
 									</Link>
 									<Link
-										activeClass="about"
-										to="about"
+										//href="/about"
+										activeClass="/index"
+										to="/about"
 										smooth={true}
 										offset={50}
 										duration={500}
@@ -109,17 +114,7 @@ function Navbar() {
 									>
 										About
 									</Link>
-									<Link
-										activeClass="work"
-										to="work"
-										smooth={true}
-										offset={50}
-										duration={500}
-										className="cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-									>
-										Projects
-									</Link>
-
+									
 									<Link
 										activeClass="Services"
 										to="work"
@@ -132,6 +127,7 @@ function Navbar() {
 									</Link>
 
 									<Link
+										href="/contact"
 										activeClass="contact"
 										to="contact"
 										smooth={true}
@@ -229,17 +225,7 @@ function Navbar() {
 									About
 								</Link>
 
-								<Link
-									href="/work"
-									activeClass="work"
-									to="work"
-									smooth={true}
-									offset={50}
-									duration={500}
-									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-								>
-									Projects
-								</Link>
+								
 								<Link
 									href="/services"
 									activeClass="services"
