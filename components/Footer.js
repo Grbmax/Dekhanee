@@ -82,9 +82,11 @@ function Footer() {
 					</ul>
 				</div>
 			</div>
-			<div className="flex flex-col justify-center items-center text-center  p-5 bg-[#468189]">
-				<h1 className=" text-gray-800 font-semibold">
-					© 2021-2022 All rights reserved | Built with ❤ by{" "}
+			<div className="flex flex-col justify-center items-center text-center  p-5 bg-[#131414]">
+				<h1 className=" text-white font-semibold">
+					© 2021-2022 All rights reserved | Built with 
+					<span className="text-red-600 font-semibold cursor-pointer"> ❤ </span>
+					by{" "}
 					<span className="hover:text-blue-600 font-semibold cursor-pointer">
 						Project Aspects {" "}
 					</span>

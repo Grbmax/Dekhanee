@@ -41,7 +41,7 @@ const Slideshow = () => {
 		),
 	};
 	return (
-		<div className="m-1">
+		<div className="">
 			<Zoom {...zoomInProperties}>
 				{images.map((each, index) => (
 					<div key={index} className="flex justify-center w-full min-h-screen ">
@@ -57,3 +57,4 @@ const Slideshow = () => {
 };
 
 export default Slideshow;
+
