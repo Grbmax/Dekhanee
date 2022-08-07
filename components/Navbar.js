@@ -1,4 +1,5 @@
 /*import Link from "next/link";
+
 import React from "react";
 import Image from 'next/image'
 import logo from '../public/Dekhanee-Logo.png'
@@ -8,62 +9,62 @@ import { FiSearch } from "react-icons/fi";
 
 const Navbar = () => {
 
-    return (
-        <>
-		<div className='bg-[#468189] h-full py-2.5'>
-		<p className=' font-mono font-light text-sm text-white text-center tracking-widest'>FREE SHIPPING ON ALL ORDERS ABOVE ₹1299</p>
+	return (
+		<>
+		<div className='bg-[#131414] h-full py-2'>
+		<p className='font-inter text-sm text-white text-center tracking-widest'>FREE SHIPPING ON ALL ORDERS ABOVE ₹1299</p>
 	  </div>
-            <div className="shadow-md  z-50 w-full  flex justify-between items-center">
+			<div className="fixed-top shadow-md z-50 w-full flex justify-between items-center">
 
-                <nav className=" top-0 flex items-center h-91px w-full text-sm bg-[#F4E9CD] px-5 md:px-5 lg:px-10">
+				<nav className=" top-0 flex items-center h-91px w-full text-sm bg-[#F4E9CD] px-4.5 md:px-4.5 lg:px-10">
 
-                    <div className="dropdown">
-                        <button className="bg-transparent text-[#031926] font-semibold py-2 px-4 rounded inline-flex items-center">
-                            <svg className="w-8 h-8" fill="none" stroke="#031926" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="{2}" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                            <ul className="link-container dropdown-menu hidden mr-2 md:mr-5 lg:mr-10">
-                                <Link href="/home"><a className="rounded-t navbar-link border border-gray-700">Home</a></Link>
-                                <Link href="/about"><a className="navbar-link border border-gray-700 border-t-0">About</a></Link>
-                                <Link href="/products"><a className="navbar-link border border-gray-700 border-t-0">Products</a></Link>
-                            </ul>
-                        </button>
-                    </div>
+					<div className="dropdown">
+						<button className="bg-transparent text-[#031926] font-semibold py-2 px-4 rounded inline-flex items-center">
+							<svg className="w-8 h-8" fill="none" stroke="#031926" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="{2}" d="M4 6h16M4 12h16M4 18h16" />
+							</svg>
+							<ul className="link-container dropdown-menu hidden mr-2 md:mr-5 lg:mr-10">
+								<Link href="/home"><a className="rounded-t navbar-link border border-gray-700">Home</a></Link>
+								<Link href="/about"><a className="navbar-link border border-gray-700 border-t-0">About</a></Link>
+								<Link href="/products"><a className="navbar-link border border-gray-700 border-t-0">Products</a></Link>
+							</ul>
+						</button>
+					</div>
 
-                    <div className="flex-1 py-4">
-                        <Link href="/"><div className="text-center cursor-pointer"><Image
-                            src={logo}
-                            alt="Picture of the author"
-                            width="80px"
-                            height="80px"
-                        /></div></Link>
-                    </div>
+					<div className="flex-1 py-4">
+						<Link href="/"><div className="text-center cursor-pointer"><Image
+							src={logo}
+							alt="Picture of the author"
+							width="80px"
+							height="80px"
+						/></div></Link>
+					</div>
 
 
-                    <div className="flex items-center space-x-4 px-4 justify-between">
+					<div className="flex items-center space-x-4 px-4 justify-between">
 
-                        <Link href="/">
-                            <FiSearch className=" text-2xl text-[#031926] cursor-pointer hover:text-yellow-600" />
-                        </Link>
+						<Link href="/">
+							<FiSearch className=" text-2xl text-[#031926] cursor-pointer hover:text-yellow-600" />
+						</Link>
 
-                        <Link href="/account">
-                            <AiOutlineUser className=" text-2xl text-[#031926] cursor-pointer hover:text-yellow-600" />
-                        </Link>
+						<Link href="/account">
+							<AiOutlineUser className=" text-2xl text-[#031926] cursor-pointer hover:text-yellow-600" />
+						</Link>
 
-                        <Link href="/cart">
-                            <AiOutlineShoppingCart className="text-2xl text-[#031926] cursor-pointer hover:text-yellow-600" />
-                        </Link>
-                    </div>
+						<Link href="/cart">
+							<AiOutlineShoppingCart className="text-2xl text-[#031926] cursor-pointer hover:text-yellow-600" />
+						</Link>
+					</div>
 
-                </nav>
-            </div>
-        </>
-    );
+				</nav>
+			</div>
+		</>
+	);
 }
 
 export default Navbar;
 */
-
+/*
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-scroll";
@@ -75,21 +76,21 @@ function Navbar() {
 	return (
 		<div>
 			
-			<nav className=" shadow-sm fixed w-full z-10 bg-[#F4E9CD]">
+			<nav className=" shadow-sm fixed w-full z-10 bg-[#A1C6EA]">
 			<div className='bg-[#131414] h-full py-2.5'>
-        		<p className=' font-mono font-light text-sm text-white text-center tracking-widest'>FREE SHIPPING ON ALL ORDERS ABOVE ₹1299</p>
-      		</div>
+				<p className=' font-mono font-light text-sm text-white text-center tracking-widest'>FREE SHIPPING ON ALL ORDERS ABOVE ₹1299</p>
+				</div>
 				<div className="w-full ">
 					<div className="flex items-center h-20 w-full ">
 						<div className="flex items-center  mx-20  justify-between w-full">
-                        
+					    
 							<div className="flex justify-center text-left flex-shrink-0 ">
 								<h1 className=" font-bold text-xl cursor-pointer">
-                                <span className="text-[#65968d]">Dekhanee:</span>
-                                <span className="text-[#172f3d]">The Beautiful</span>
+								<span className="text-[#65968d]">Dekhanee:</span>
+								<span className="text-[#172f3d]">The Beautiful</span>
 								</h1>
 							</div>
-                            
+						    
 							<div className="hidden md:block">
 								<div className="ml-10 flex items-baseline space-x-4">
 									<Link
@@ -258,4 +259,203 @@ function Navbar() {
 	);
 }
 
-export default Navbar;
+export default Navbar;*/
+
+//import React from "react";
+import { Link } from "react-scroll";
+import React, { useState } from "react";
+//import Link from "next/link";
+import { Transition } from "@headlessui/react";
+
+const Navbar = () => {
+	const [isOpen, setIsOpen] = useState(false);
+	return (
+
+		<div className="flex flex-col justify-center item-center w-full z-10 bg-[#A1C6EA]">
+			<div className='bg-[#131414] h-full py-2.5'>
+				<p className=' font-mono font-light text-sm text-white text-center tracking-widest'>FREE SHIPPING ON ALL ORDERS ABOVE ₹1299</p>
+			</div>
+			<div className="w-full ">
+				<div className="flex items-center h-20 w-full ">
+					<div className="flex items-center  mx-20  justify-between w-full">
+
+						<div className="flex justify-center text-left flex-shrink-0 ">
+							
+							<h1 className=" font-bold text-xl cursor-pointer">
+								<span className="text-[#65968d]">Dekhanee:</span>
+								<span className="text-[#172f3d]">The Beautiful</span>
+							</h1>
+							
+						</div>
+
+						<div className="hidden md:block">
+							<div className="ml-10 flex items-baseline space-x-4">
+								<Link
+									href={"/"}
+									activeClass="/index"
+									to="/about"
+									smooth={true}
+									offset={50}
+									duration={500}
+									className="cursor-pointer text-blue-600 font-semibold px-3 py-2 text-md hover:font-black"
+								>
+									Home
+								</Link>
+								<Link
+									href={"/about"}
+									activeClass="about"
+									to="about"
+									smooth={true}
+									offset={50}
+									duration={500}
+									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+								>
+									About
+								</Link>
+
+								<Link
+									activeClass="Services"
+									to="work"
+									smooth={true}
+									offset={50}
+									duration={500}
+									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+								>
+									Services
+								</Link>
+
+								<Link
+									href={"/contact"}
+									activeClass="contact"
+									to="contact"
+									smooth={true}
+									offset={50}
+									duration={500}
+									className="cursor-pointer bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-black"
+								>
+									Contact
+								</Link>
+							</div>
+						</div>
+					</div>
+					<div className="mr-10 flex md:hidden ">
+						<button
+							onClick={() => setIsOpen(!isOpen)}
+							type="button"
+							className="bg-blue-600 inline-flex items-center justify-center p-2 rounded-md text-white  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
+							aria-controls="mobile-menu"
+							aria-expanded="false"
+						>
+							<span className="sr-only">Open main menu</span>
+							{!isOpen ? (
+								<svg
+									className="block h-6 w-6"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
+										d="M4 6h16M4 12h16M4 18h16"
+									/>
+								</svg>
+							) : (
+								<svg
+									className="block h-6 w-6"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
+										d="M6 18L18 6M6 6l12 12"
+									/>
+								</svg>
+							)}
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<Transition
+				show={isOpen}
+				enter="transition ease-out duration-100 transform"
+				enterFrom="opacity-0 scale-95"
+				enterTo="opacity-100 scale-100"
+				leave="transition ease-in duration-75 transform"
+				leaveFrom="opacity-100 scale-100"
+				leaveTo="opacity-0 scale-95"
+			>
+				{(ref) => (
+					<div className="md:hidden" id="mobile-menu">
+						<div
+							ref={ref}
+							className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3"
+						>
+							<Link
+								href={"/"}
+								activeClass="home"
+								to="home"
+								smooth={true}
+								offset={50}
+								duration={500}
+								className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+							>
+								Home
+							</Link>
+							<Link
+								href={"/about"}
+								activeClass="about"
+								to="about"
+								smooth={true}
+								offset={50}
+								duration={500}
+								className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+							>
+								About
+							</Link>
+
+
+							<Link
+								href={"/services"}
+								activeClass="services"
+								to="services"
+								smooth={true}
+								offset={50}
+								duration={500}
+								className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+							>
+								Services
+							</Link>
+
+							<Link
+								href={"/contact"}
+								//activeClass="work"
+								//to="work"
+								//smooth={true}
+								//offset={50}
+								//duration={500}
+								className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+							>
+								Contact
+							</Link>
+						</div>
+					</div>
+				)}
+			</Transition>
+
+		</div>
+
+
+	)
+}
+
+export default Navbar
