@@ -15,7 +15,7 @@ const Slideshow = () => {
 		indicators: true,
 		scale: 1,
 		duration: 3000,
-		transitionDuration: 300,
+		transitionDuration: 500,
 		infinite: true,
 		prevArrow: (
 			<div style={{ width: "30px", marginRight: "-30px", cursor: "pointer" }}>
@@ -41,10 +41,10 @@ const Slideshow = () => {
 		),
 	};
 	return (
-		<div className="">
+		<div className="m-1">
 			<Zoom {...zoomInProperties}>
 				{images.map((each, index) => (
-					<div key={index} className="flex justify-center w-full min-h-screen ">
+					<div key={index} className=" flex justify-center w-full h-screen ">
 						<img
 							className="min-h-screen object-cover rounded-lg shadow-xl"
 							src={each}
@@ -57,4 +57,3 @@ const Slideshow = () => {
 };
 
 export default Slideshow;
-
