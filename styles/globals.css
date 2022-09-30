@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Poppins:wght@100&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,9 +9,9 @@ html {
 }
 
 body {
-  background-color: white;
-  color: black;
-  font-family: Raleway, Rubiks, Helvetica Neue, sans-serif;
+  background-color: black;
+  color: white;
+  font-family: 'Playfair Display', serif;
   line-height: 1.1;
   letter-spacing: 0em;
 }
