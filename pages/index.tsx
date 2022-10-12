@@ -16,12 +16,7 @@ const Home: NextPage = () => {
       </Head>
       <Navbar />
       <About />
-  
-      
-      <div className="h-96 bg-black"></div>
-      <div className="h-96 bg-black"></div>
-      <div className="h-96 bg-black"></div>
-      <div className="h-96 bg-black"></div>
+ 
     </div>
   )
 }
