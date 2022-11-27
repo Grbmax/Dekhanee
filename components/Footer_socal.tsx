@@ -4,7 +4,7 @@ import {FiTwitter  } from 'react-icons/fi'
 
 const Footer_socal = () => {
   return (
-    <div className='flex justify-end gap-5 text-3xl'>
+    <div className='flex py-5 justify-center lg:justify-end gap-5 text-3xl'>
         <FaInstagram />
         <FaFacebookF />
         <FiTwitter />
