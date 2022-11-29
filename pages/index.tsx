@@ -6,6 +6,10 @@ import Footer from '../components/Footer'
 
 import Masthehad from '../components/masthead'
 import Navbar from '../components/Navbar'
+import Product_categories from '../components/Product_categories'
+import Product_list from '../components/Earrings'
+import Testimonial from '../components/Testimonial'
+import Earrings from '../components/Earrings'
 
 const Home: NextPage = () => {
   return (
@@ -17,6 +21,9 @@ const Home: NextPage = () => {
       </Head>
       <Navbar />
       <About />
+      <Product_categories />
+     
+      <Testimonial />
       <Footer />
  
     </div>

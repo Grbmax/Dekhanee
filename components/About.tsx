@@ -4,8 +4,8 @@ const About = () => {
     return (
         <>
             <div className="flex flex-col items-center justify-center">
-                <div className=' text-5xl'>About</div>
-                <div className='text-3xl m-[25px] lg:m-[80px] mt-[64px] text-center'>
+                <div className=' text-3xl'>About</div>
+                <div className='text-xl m-[25px] lg:m-[30px] mt-[64px] text-center'>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh nisl nec augue consequat est
                          pretium. Viverra a, hendrerit porttitor sit enim est ac. Quam tortor amet nisl felis et. 
