@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: gray;
+  background-color: #EFEFEF;
   color: black;
   font-family: 'Playfair Display', serif;
   line-height: 1.1;
@@ -17,4 +17,8 @@ body {
 }
 
 
+/* banner start */
 
+
+
+/* banner end */

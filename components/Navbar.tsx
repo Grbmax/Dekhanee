@@ -30,6 +30,7 @@ export default Navbar; */
 
 import React from "react";
 import Hamburger from "../components/Hamburger";
+import Link from "next/link";
 import Login_Signup_button from "./Login_Signup_button";
 
 const Navbar = () => {
@@ -40,7 +41,9 @@ const Navbar = () => {
           <Hamburger />
         </div>
         <div className=" text-center w-1/3 text-black text-2xl md:text-4xl lg:text-5xl italic font-semibold">
-          Dekhanee
+          <a>
+            <Link href={""}>Dekhanee</Link>
+          </a>
         </div>
         <div className="w-1/3 text-right p-5">
           <Login_Signup_button />
