@@ -9,7 +9,7 @@ const Product_categories = () => {
         <span className="text-3xl font-extrabold ">Product Categories</span>
       </div>
       <a className="flex flex-col lg:flex-row gap-5 items-center justify-center mt-10">
-        <Link href={"//earing"}>
+        <Link href={"./earing"}>
           <div className="flex-col ">
             <div className="h-[280px] lg:h-[380px] w-[280px] lg:w-[380px] bg-white shadow-2xl flex items-center justify-center rounded-lg">
               <img
@@ -23,7 +23,7 @@ const Product_categories = () => {
             </span>
           </div>
         </Link>
-        <Link href={"//"}>
+        <Link href={""}>
           <div className="flex-col ">
             <div className="h-[280px] lg:h-[380px] w-[280px] lg:w-[380px] bg-white shadow-2xl flex items-center justify-center rounded-lg">
               <img
@@ -37,7 +37,7 @@ const Product_categories = () => {
             </span>
           </div>
         </Link>
-        <Link href={"//"}>
+        <Link href={""}>
           <div className="flex-col ">
             <div className="h-[280px] lg:h-[380px] w-[280px] lg:w-[380px] bg-white shadow-2xl flex items-center justify-center rounded-lg">
               <img

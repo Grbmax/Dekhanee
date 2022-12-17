@@ -1,15 +1,10 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import About from '../components/About'
-import Footer from '../components/Footer'
-
-import Masthehad from '../components/masthead'
-import Navbar from '../components/Navbar'
-import Product_categories from '../components/Product_categories'
-import Product_list from '../components/Earrings'
-import Testimonial from '../components/Testimonial'
-import Earrings from '../components/Earrings'
+import type { NextPage } from "next";
+import Head from "next/head";
+import About from "../components/About";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import Product_categories from "../components/Product_categories";
+import Testimonial from "../components/Testimonial";
 
 const Home: NextPage = () => {
   return (
@@ -22,12 +17,10 @@ const Home: NextPage = () => {
       <Navbar />
       <About />
       <Product_categories />
-     
       <Testimonial />
       <Footer />
- 
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
