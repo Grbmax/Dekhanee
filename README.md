@@ -1,1 +1,1 @@
-# Simple Web-App to conduct Surveys with NextJS & MySQL
+# Dekhanee : The Beautiful Website for Jewellery Shopping
