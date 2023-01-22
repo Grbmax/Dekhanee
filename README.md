@@ -1,1 +1,1 @@
-# Dekhanee : The Beautiful Website for Jewellery Shopping
+# Dekhanee : The Beautiful; A Website for Jewellery Shopping
