@@ -31,7 +31,7 @@ export default Navbar; */
 import React from "react";
 import Hamburger from "../components/Hamburger";
 import Link from "next/link";
-import Login_Signup_button from "./Login_Signup_button";
+import { AiOutlineShoppingCart } from 'react-icons/ai'
 
 const Navbar = () => {
   return (
@@ -41,12 +41,20 @@ const Navbar = () => {
           <Hamburger />
         </div>
         <div className=" text-center w-1/3 text-black text-2xl md:text-4xl lg:text-5xl italic font-semibold">
-          <a>
-            <Link href={""}>Dekhanee</Link>
-          </a>
+
+          <Link href={""}>Dekhanee</Link>
+
         </div>
         <div className="w-1/3 text-right p-5">
-          <Login_Signup_button />
+          <div className="space-x-2">
+            <button className="border-2 border-black p-1 rounded-lg bg-black text-white hover:bg-transparent hover:text-black">
+              Login
+            </button>
+            <button className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white">
+              Sign Up
+            </button>
+            
+          </div>
         </div>
       </div>
     </>
