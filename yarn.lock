@@ -7,6 +7,11 @@
   "resolved" "https://registry.npmjs.org/@next/env/-/env-13.1.2.tgz"
   "version" "13.1.2"
 
+"@next/font@^13.1.4":
+  "integrity" "sha512-NfqQPAIFJhssdaZEsP0MADZKN+tc040jOkNKVlDZHtVjJWBJSgbe8UHg3w0S6YuQr7PHc0ACbFeVCBQeG4MEvg=="
+  "resolved" "https://registry.npmjs.org/@next/font/-/font-13.1.4.tgz"
+  "version" "13.1.4"
+
 "@next/swc-win32-x64-msvc@13.1.2":
   "integrity" "sha512-avsyveEvcvH42PvKjR4Pb8JlLttuGURr2H3ZhS2b85pHOiZ7yjH3rMUoGnNzuLMApyxYaCvd4MedPrLhnNhkog=="
   "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-13.1.2.tgz"
