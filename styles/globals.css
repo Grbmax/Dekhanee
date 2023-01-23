@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Poppins:wght@100&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #EFEFEF;
+    color: black;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.1;
+    letter-spacing: 0em;
+  }
+  

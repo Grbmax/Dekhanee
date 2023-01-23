@@ -1,4 +1,4 @@
-import Link from "next/link";
+/* import Link from "next/link";
 import React from "react";
 import Earrings from "./Earrings";
 
@@ -57,3 +57,49 @@ const Product_categories = () => {
 };
 
 export default Product_categories;
+ */
+
+import React, { FC } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+
+interface ProductCategoryProps {
+  name: string;
+  products: ProductProps[];
+}
+
+interface ProductProps {
+  id: string;
+  name: string;
+  price: number;
+  imageUrl: string;
+}
+
+const ProductCategory: FC<ProductCategoryProps> = ({ name, products }) => {
+  const router = useRouter();
+
+  return (
+    <div className="px-4">
+      <h1 className="text-2xl font-medium">{name}</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        {products.map((product) => (
+          <Link href={`/product/${product.id}`} key={product.id}>
+            <div className="col-span-1 rounded-lg overflow-hidden">
+              <img
+                className="w-full"
+                src={product.imageUrl}
+                alt={product.name}
+              />
+              <div className="px-6 py-4">
+                <h2 className="text-lg font-medium">{product.name}</h2>
+                <p className="text-gray-600">Price: ${product.price}</p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ProductCategory;

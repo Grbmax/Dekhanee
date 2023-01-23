@@ -6,19 +6,12 @@ interface ProductProps {
   name: string;
   price: number;
   imageUrl: string;
-  discription: string;
 }
 
-const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) => {
+const ProductCard: FC<ProductProps> = ({ name, price, imageUrl }) => {
   return (
-    /*     <div classNameName="">
-      <img src={imageUrl} alt={name} />
-      <h2>{name}</h2>
-      <p>Price: ${price}</p>
-      <button>Add to Cart</button>
-    </div> */
-    <>
-    <Navbar />
+    <div>
+      <Navbar />
       <section className="text-gray-600 body-font overflow-hidden">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
@@ -39,9 +32,9 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-indigo-500"
                     viewBox="0 0 24 24"
                   >
@@ -50,9 +43,9 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-indigo-500"
                     viewBox="0 0 24 24"
                   >
@@ -61,9 +54,9 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-indigo-500"
                     viewBox="0 0 24 24"
                   >
@@ -72,9 +65,9 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-indigo-500"
                     viewBox="0 0 24 24"
                   >
@@ -83,9 +76,9 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
                   <svg
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-indigo-500"
                     viewBox="0 0 24 24"
                   >
@@ -97,9 +90,9 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
                   <a className="text-gray-500">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
@@ -109,9 +102,9 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
                   <a className="text-gray-500">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
@@ -121,9 +114,9 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
                   <a className="text-gray-500">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
@@ -133,7 +126,12 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
                 </span>
               </div>
               <p className="leading-relaxed">
-                {discription}
+                Fam locavore kickstarter distillery. Mixtape chillwave tumeric
+                sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo
+                juiceramps cornhole raw denim forage brooklyn. Everyday carry +1
+                seitan poutine tumeric. Gastropub blue bottle austin listicle
+                pour-over, neutra jean shorts keytar banjo tattooed umami
+                cardigan.
               </p>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                 <div className="flex">
@@ -155,9 +153,9 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
                       <svg
                         fill="none"
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-4 h-4"
                         viewBox="0 0 24 24"
                       >
@@ -169,7 +167,7 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
               </div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
-                  ${price}
+                  {price}
                 </span>
                 <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
                   Button
@@ -177,9 +175,9 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-5 h-5"
                     viewBox="0 0 24 24"
                   >
@@ -192,7 +190,7 @@ const ProductCard: FC<ProductProps> = ({ name, price, imageUrl, discription }) =
         </div>
       </section>
       <Footer />
-    </>
+    </div>
   );
 };
 
