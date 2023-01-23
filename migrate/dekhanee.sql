@@ -5,76 +5,24 @@ USE dekhanee;
 
 -- USER MANAGEMENT
 
-CREATE TABLE user_login (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+CREATE TABLE user (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    u_name VARCHAR (50),
     mail_id varchar(50) UNIQUE,
-    u_pwd VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE admin_login (
-    admin_id INT PRIMARY KEY NOT NULL,
-    admin_pwd VARCHAR(50) NOT NULL 
-);
-
-CREATE TABLE user_information (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    u_id int NOT NULL,
+    u_pwd VARCHAR(255) NOT NULL,
     ph_no VARCHAR(20) NOT NULL,
+    u_role VARCHAR(10) DEFAULT "user",
+    createdAt DATETIME,
+    accessToken VARCHAR(255) NOT NULL UNIQUE,
     address_line1 VARCHAR(100),
     address_line2 VARCHAR(100),
-    city VARCHAR(50) NOT NULL,
-    address_state varchar(50) NOT NULL,
-    pincode varchar(10) NOT NULL,
-    country varchar(30) NOT NULL,
+    city VARCHAR(50),
+    address_state varchar(50),
+    pincode varchar(10),
+    country varchar(30),
     alt_ph_no VARCHAR(20),
-    dob DATE,
-    FOREIGN KEY (u_id) REFERENCES user_login (id) ON UPDATE CASCADE ON DELETE CASCADE
+    dob DATE
 );
-
-CREATE TABLE shopping_session (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    u_id INT,
-    total DECIMAL(10,2),
-    created_at DATETIME,
-    modified_at DATETIME,
-    FOREIGN KEY (u_id) REFERENCES user_login (id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-CREATE TABLE payment_details (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    cart_id INT,
-    amount DECIMAL(10,2),
-    payment_status VARCHAR(20),
-    created_at DATETIME,
-    modified_at DATETIME,
-    FOREIGN KEY (cart_id) REFERENCES cart (id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-CREATE TABLE order_history (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    u_id INT,
-    total DECIMAL(10,2),
-    created_at DATETIME,
-    modified_at DATETIME,
-    payment_id INT,
-    FOREIGN KEY (u_id) REFERENCES user_type (id) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (payment_id) REFERENCES payment_details (id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-CREATE TABLE cart (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    u_id INT,
-    p_id INT,
-    p_qty INT,
-    sesh_id INT,
-    FOREIGN KEY (u_id) REFERENCES user_type (id),
-    FOREIGN KEY (p_id) REFERENCES product_list (id) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (sesh_id) REFERENCES shopping_session (id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-
--- INVENTORY MANAGEMENT
-
 
 CREATE TABLE inventory (
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -92,6 +40,40 @@ CREATE TABLE product_list (
     p_inventory_id INT NOT NULL,
     FOREIGN KEY (p_inventory_id) REFERENCES inventory (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+CREATE TABLE cart (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    u_id INT,
+    p_id INT,
+    p_qty INT,
+    FOREIGN KEY (u_id) REFERENCES user (id),
+    FOREIGN KEY (p_id) REFERENCES product_list (id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE payment_details (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    cart_id INT,
+    amount DECIMAL(10,2),
+    payment_status VARCHAR(20),
+    createdAt DATETIME,
+    modifiedAt DATETIME,
+    FOREIGN KEY (cart_id) REFERENCES cart (id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE order_history (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    u_id INT,
+    total DECIMAL(10,2),
+    createdAt DATETIME,
+    modifiedAt DATETIME,
+    payment_id INT,
+    FOREIGN KEY (u_id) REFERENCES user (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (payment_id) REFERENCES payment_details (id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+
+-- INVENTORY MANAGEMENT
 
 CREATE TABLE product_details (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -111,11 +93,20 @@ CREATE TABLE product_details (
 -- POPULATE DATABASE
 
 -- USER LOGIN
-INSERT INTO user_login (mail_id, u_pwd) VALUES ('user@gmail.com', 'dekhanee');
-INSERT INTO user_information (u_id, ph_no, address_line1, city, address_state, pincode, country, dob) VALUES ('1', '91-8007035533', 'Sinhgad', 'Pune', 'Maharashtra', '411041', 'India', '2022-06-22');
+INSERT INTO user (u_name, mail_id, u_pwd, ph_no, u_role, createdAt, 
+accessToken) VALUES 
+("Gaurav Bhat","grbmax@gmail.com","$2a$10$YYcyUZSoVeGEx5q.TF4XG.FeruAA1brInVxHN3eHYcRYxrff.0JhS","8007035533","admin", NOW(), 
+"sTg74712XGIWOFA2zRvyrfUbHABeEAg6UC154LJO5mePsqlTX6L0ftV6GuGj51KgAp7EgWBzGmzHGyinc3p2286eDwhiO2RIxulFZwJLw87i7I7UJc8NACYdRDpgLgvcCNEkiu1MFVpM6OLSQltIVeBEUIWeZyNdGoUGVUqQmkCd0jyYl5FV1n7AyA1dIIIxw3hKa6MXL6eABbUIrBF5k0opZxZVYhsRX4ivWt1FAchBrm70mu3cYwTspNVULl"
+); 
+-- password 1234
 
--- ADMIN LOGIN
-INSERT INTO admin_login (admin_id, admin_pwd) VALUES ('123','batman');
+INSERT INTO user (u_name, mail_id, u_pwd, ph_no, u_role, createdAt, 
+accessToken) VALUES 
+("Rohit Panchal","rohit@gmail.com","$2a$10$uIl/7uLTxiIMqhBGeeKNu./f.KipRjhZjA6GiK6TqtairazEVCwDS","8007035544","user", NOW(), 
+"ZaCuZDFTOqQQftOO58sAOmCcaSfyWHVcNnmVJatheAY19hzrVhxcdKo3LxhrPHmKy1IqRdDIw73W2WkD6QxH2brstuU2qFozDFJMEQNxIpvetNdlZIilSc68S6WaKLJfdAjF4Pv2YdhwcA9toMDwwEvxqVb0FMqBKFPLWVgmKkK3oZ8dJfBNq7A88JYEbvarAEAFPHdouY4SiaDNOIMtoUfkG7xWYXuwM0Rx4xaeTMwILgvUKncNxr8ZYsHbdY"
+); 
+-- password 1234
+
 
 -- INVENTORY
 INSERT INTO inventory (inv_address, city, pincode, ph_no) 
