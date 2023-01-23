@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <>
 
-      <div className="bg-[#F4E9CD] w-full text-black p-10">
+      <div className="bg-[#F4E9CD] w-full text-black p-5 lg:p-10">
         <div className="flex flex-col lg:flex-row w-full">
           <div className="w-1/2 text-4xl lg:text-5xl italic font-semibold pb-10">Dekhanee</div>
           <div className="flex flex-col w-full lg:w-1/2 text-center  lg:text-justify">
@@ -39,15 +39,15 @@ const Footer = () => {
 
             </div>
           </div>
-          <div className=" flex flex-col gap-4 w-full lg:w-1/2 ">
+          <div className=" flex flex-col gap-4 w-full lg:w-1/2 text-center md:text-justify">
             <span className="flex flex-col text-2xl text-gray-900">SUBSCRIBE</span>
-            <div className="flex flex-col lg:flex-row gap-5 text-end ">
+            <div className="flex flex-col lg:flex-row gap-5 items-center ">
               <input type="text" className="h-10 rounded-lg w-full lg:w-1/2" />
               <button type="submit" className="border-2 bg-black text-white h-12 w-32 rounded-lg text-2xl ">Submit</button>
             </div>
           </div>
         </div>
-        <div className='flex justify-center lg:justify-end gap-5 text-3xl'>
+        <div className='flex justify-center lg:justify-end gap-5 text-3xl pt-8 md:pt-0'>
           <FaInstagram />
           <FaFacebookF />
           <FiTwitter />
