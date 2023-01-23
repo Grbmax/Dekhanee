@@ -2,16 +2,16 @@ import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
 
 type FormValues = {
-  admin_id: string;
-  admin_pwd: string;
+  mail_id: string;
+  pwd: string;
 };
 
 const resolver: Resolver<FormValues> = async (values) => {
   return {
-    values: values.admin_id ? values : {},
-    errors: !values.admin_id
+    values: values.mail_id ? values : {},
+    errors: !values.mail_id
       ? {
-          admin_id: {
+          mail_id: {
             type: 'required',
             message: 'This is required.',
           },
@@ -24,7 +24,7 @@ export default function App() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver });
   const onSubmit = async (values : any) => {
     try {
-        await fetch('/api/adminlogin', {
+        await fetch('/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -43,20 +43,20 @@ export default function App() {
                 <form onSubmit={handleSubmit(onSubmit)} className='bg-[#F4E9CD] shadow-md rounded px-8 pt-6 pb-8 mb-4'>
                 <div className='mb-4'>
                         <label className='block text-gray-700 text-sm font-bold mb-2'>
-                            Username
+                            Email-ID
                         </label>
-                        <input {...register("admin_id")}  
+                        <input {...register("mail_id")}  
                         className='shadow appearance-none border 
                         rounded w-full py-2 px-3 text-gray-700 leading-tight 
                         focus:outline-none focus:shadow-outline' 
-                        id='username' type='text' placeholder='Username'/>
-                        {errors?.admin_id && <p className='py-1 text-red-500 leading-tight text-xs italic'>{errors.admin_id.message}</p>}
+                        id='username' type='mail' placeholder='user@gmail.com'/>
+                        {errors?.mail_id && <p className='py-1 text-red-500 leading-tight text-xs italic'>{errors.mail_id.message}</p>}
                     </div>
                     <div className='mb-6'>
                         <label className='block text-gray-700 text-sm font-bold mb-2'>
                             Password
                         </label>
-                        <input {...register("admin_pwd")}  
+                        <input {...register("pwd")}  
                         className='shadow appearance-none border border-red-500 rounded w-full py-2 px-3 
                         text-gray-700 mb-3 leading-tight focus:outline-none 
                         focus:shadow-outline' type='password' placeholder='Password'/>
