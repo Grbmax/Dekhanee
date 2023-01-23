@@ -38,7 +38,7 @@ export default function App() {
     
   return (
     <>
-    <div className='bg-[#313131] bg-opacity-40'>
+    <div className='bg-[#EFEFEF] bg-opacity-100'>
         <div className='flex flex-row h-screen justify-center items-center'>
             <div className='w-full max-w-xs'>
                 <form onSubmit={handleSubmit(onSubmit)} className='bg-[#F4E9CD] shadow-md rounded px-8 pt-6 pb-8 mb-4'>
