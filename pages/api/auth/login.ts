@@ -12,7 +12,7 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
         u_pwd : string
     }
 
-    const { username:mail_id, password:pwd } = req.body
+    const { username:email, password:pwd } = req.body
 
     const hashPassword = async ( pwd: string ) : Promise<string> => {
         const salt = await bcrypt.genSalt(10);
@@ -29,22 +29,23 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
         }
     }
     
-    if (!mail_id || !pwd) {
+    if (!email || !pwd) {
         return res.status(400).json({ error: 'Required Fields Are Missing!' })
     }
     else {
     try {
         const results = await sql_query (
-            ` SELECT id , u_name, mail_id, u_pwd FROM user WHERE mail_id = ? `,
-        [mail_id])
+            ` SELECT id , name, email, u_pwd FROM user WHERE email = ? `,
+        [email])
         const json:User[] = results;
+
         const [{ id, u_name, mail, u_pwd} ] = json
         
         const returnUser = async () => {
             try {
                 const results = await sql_query (
-                    ` SELECT * FROM user WHERE mail_id = ? AND u_pwd = ? `,
-                [mail_id, u_pwd])
+                    ` SELECT * FROM user WHERE email = ? AND u_pwd = ? `,
+                [email, u_pwd])
                 return results
             } catch (error) {
                 res.status(500).json({ message: "Password Authentication Failed!" });
@@ -55,6 +56,7 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
         const match = await comparePassword(pwd, u_pwd);
         if (match) {
         const new_results = await returnUser();
+
         res.status(200).json({ message:"Success", data: new_results});
         } 
         else {
