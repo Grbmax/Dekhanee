@@ -12,7 +12,7 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
         u_pwd : string
     }
 
-    const { mail_id, pwd } = req.body
+    const { username:mail_id, password:pwd } = req.body
 
     const hashPassword = async ( pwd: string ) : Promise<string> => {
         const salt = await bcrypt.genSalt(10);
@@ -30,7 +30,7 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
     }
     
     if (!mail_id || !pwd) {
-        return res.status(400).json({ error: 'Request Missing E-Mail or Password' })
+        return res.status(400).json({ error: 'Required Fields Are Missing!' })
     }
     else {
     try {
@@ -55,11 +55,10 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
         const match = await comparePassword(pwd, u_pwd);
         if (match) {
         const new_results = await returnUser();
-        console.log(new_results)
         res.status(200).json({ message:"Success", data: new_results});
         } 
         else {
-        res.status(401).json({ message:"Unauthorized"});
+        res.status(404).json({ message : "Unauthorized / Incorrect Password" , error : "Not Found"});
         }
 
     } catch (e) {
