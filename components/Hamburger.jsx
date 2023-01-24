@@ -7,7 +7,7 @@ function MobileNav({ open, setOpen }) {
         open ? "-translate-y-0" : "-translate-y-full"
       } transition-transform duration-300 ease-in-out filter  `}
     >
-      <div className="flex flex-col justify-center items-center mt-28">
+      <div className="flex flex-col justify-center items-center mt-10">
         <a
           className="text-2xl lg:text-3xl font-bold hover:text-[#cd8d59] hover:underline my-4"
           href="#home"
@@ -28,7 +28,7 @@ function MobileNav({ open, setOpen }) {
         </a>
         <a
           className="text-2xl lg:text-3xl font-bold my-4 hover:text-[#cd8d59] hover:underline "
-          href="#products"
+          href="/earrings"
           onClick={() => {
             setOpen(!open), scrollTo(top);
           }}
@@ -37,7 +37,16 @@ function MobileNav({ open, setOpen }) {
         </a>
         <a
           className="text-2xl lg:text-3xl font-bold my-4 hover:text-[#cd8d59] hover:underline "
-          href="#trackOrder"
+          href="/order"
+          onClick={() => {
+            setOpen(!open), scrollTo(top);
+          }}
+        >
+          My Order
+        </a>
+        <a
+          className="text-2xl lg:text-3xl font-bold my-4 hover:text-[#cd8d59] hover:underline "
+          href="#trackorder"
           onClick={() => {
             setOpen(!open), scrollTo(top);
           }}

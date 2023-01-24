@@ -7,7 +7,7 @@ import { AiOutlineShoppingCart, AiOutlineCloseCircle, AiFillMinusCircle, AiFillP
 import { useRef } from "react";
 
 const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
-  console.log(cart, addToCart, removeFromCart, clearCart, subTotal)
+ 
   const ref = useRef<HTMLInputElement | null>(null);
   const toggleCart = () => {
     if (!ref.current) return;
@@ -24,8 +24,8 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
   return (
     <>
 
-      <div className="flex items-center justify-center shadow-md bg-[#F4E9CD] w-full text-black z-10">
-        <div className=" w-1/3">
+      <div className="flex items-center justify-center shadow-md bg-[#F4E9CD] w-ful text-black z-10">
+        <div className=" w-1/3 z-10">
           <Hamburger />
         </div>
         <div className=" text-center w-1/3 text-black text-2xl md:text-4xl lg:text-5xl italic font-semibold">
@@ -44,7 +44,7 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
             </button>
 
           </div>
-          <div ref={ref} className={`sideCart w-72 h-[100vh] absolute top-0 right-0 bg-[#F4E9CD] p-10 transform transition-transform ${Object.keys(cart).length !== 0 ? 'translate-x-0': 'translate-x-full'}`}>
+          <div ref={ref} className={`z-10 sideCart w-72 h-[100vh] absolute top-0 right-0 bg-[#F4E9CD] p-10 transform transition-transform ${Object.keys(cart).length !== 0 ? 'translate-x-0': 'translate-x-full'}`}>
             <span onClick={toggleCart} className="absolute top-5 right-2 cursor-pointer text-2xl"><AiOutlineCloseCircle /></span>
             <h2 className="font-bold text-xl text-center"> Shoping Cart </h2>
             <ol className="list-decimal font-semibold">
