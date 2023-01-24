@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [subTotal, setSubTotal] = useState(0)
 
   useEffect(() => {
-    console.log("i m useEffect")
+    
     try {
       if (localStorage.getItem("cart")) {
         setCart(JSON.parse(localStorage.getItem("cart")))
