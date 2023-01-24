@@ -72,5 +72,5 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
     </>
   );
 };
-
+/* dfgdfgdfg samp */
 export default Navbar;
