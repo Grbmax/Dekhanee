@@ -30,30 +30,27 @@ export default Navbar; */
 
 import React from "react";
 import Hamburger from "../components/Hamburger";
+import Image from "next/image";
+import DekhaneeLogo from "../public/DekhaneeLogo.png"
 import Link from "next/link";
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 
 const Navbar = () => {
   return (
     <>
-      <div className="flex items-center bg-[#F4E9CD] w-full text-black">
+      <div className="flex items-center justify-evenly bg-[#F4E9CD] w-full text-black sticky top-0">
         <div className=" w-1/3">
           <Hamburger />
         </div>
         <div className=" text-center w-1/3 text-black text-2xl md:text-4xl lg:text-5xl italic font-semibold">
-
-          <Link href={""}>Dekhanee</Link>
-
+        <Image src={DekhaneeLogo} alt="profilepciture" height={8*15} width={8*15} className='flex items-center justify-center'/>
+          {/* <Link href={""}>Dekhanee</Link> */}
         </div>
         <div className="w-1/3 text-right p-5">
-          <div className="space-x-2">
+          <div className="">
             <button className="border-2 border-black p-1 rounded-lg bg-black text-white hover:bg-transparent hover:text-black">
               Login
-            </button>
-            <button className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white">
-              Sign Up
-            </button>
-            
+            </button> 
           </div>
         </div>
       </div>
