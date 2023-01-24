@@ -1,8 +1,11 @@
 import React from 'react'
+import Sample from '../components/Sample'
 
 function index() {
   return (
-    <div>index</div>
+    <div>
+      <Sample />{/* just for test */}
+    </div>
   )
 }
 

@@ -15,5 +15,6 @@ html {
     font-family: 'Playfair Display', serif;
     line-height: 1.1;
     letter-spacing: 0em;
+    overflow-x: hidden;
   }
   
