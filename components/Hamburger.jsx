@@ -4,7 +4,7 @@ function MobileNav({ open, setOpen }) {
   return (
     <div
       className={`fixed top-0 left-0 h-screen w-full bg-[#F4E9CD] text-black bg-opacity-95 transform ${
-        open ? "-translate-y-0" : "-translate-y-full"
+        open ? "-translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out filter  `}
     >
       <div className="flex flex-col justify-center items-center mt-28">
