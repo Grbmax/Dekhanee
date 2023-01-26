@@ -10,7 +10,8 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
   //Session 
 
   const {data:session} = useSession()
-  console.log("Session Details: ", session?.user);
+  //DEUBG
+  console.log("Session Details: ", session);
 
 
   //Cart

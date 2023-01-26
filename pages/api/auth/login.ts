@@ -12,6 +12,25 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
         u_pwd : string
     }
 
+    interface Session {
+        id : number,
+        name : string,
+        email : string,
+        password : string,
+        mobile : string,
+        role : string,
+        createdAt : any,
+        accessToken : string,
+        address_line1 : string,
+        address_line2 : string,
+        city : string,
+        address_state : string,
+        pincode : string,
+        country : string,
+        alt_mobile : string,
+        dob : any
+    }
+
     const { username:email, password:pwd } = req.body
 
     const hashPassword = async ( pwd: string ) : Promise<string> => {
@@ -56,8 +75,10 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
         const match = await comparePassword(pwd, u_pwd);
         if (match) {
         const new_results = await returnUser();
-
-        res.status(200).json({ message:"Success", data: new_results});
+        
+        const session:Session[] = new_results[0]
+        
+        res.status(200).json(session);
         } 
         else {
         res.status(404).json({ message : "Unauthorized / Incorrect Password" , error : "Not Found"});
