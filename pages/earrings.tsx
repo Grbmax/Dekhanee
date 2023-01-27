@@ -1,18 +1,22 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { InferGetServerSidePropsType } from 'next'
 
-
 type Cards = {
-  id: number,
-  p_name: string,
-  p_type: string,
-  p_category: string,
-  p_inventory_id: string
+ id : number,
+ name : string,
+ type : string,
+ category : string,
+ inventory_id : number,
+ description : string,
+ MSRP : number,
+ SP : number,
+ image : string
 }
 
-export const getStaticProps = async () => {
-  const res = await fetch(`http://localhost:3000/api/products/fetchList`)
+export const getStaticProps = async() => {
+  const res = await fetch(`http://localhost:3000/api/products/fetchProducts`)
   const cards: Cards[] = await res.json()
   return {
     props: {
@@ -21,33 +25,35 @@ export const getStaticProps = async () => {
   }
 }
 
-function earrings({ cards }: InferGetServerSidePropsType<typeof getStaticProps>) {
-  //for(var i = 0; i < Object.keys(cards).length; i++)
-  // {
-  //     console.log(cards[i])
-  // 
-  return (
-    <>
-      <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap -m-4 justify-center p-5">
-            <div className='flex flex-row justify-center h-screen items-center w-full'>
-              {
-                cards.map((card) =>
-                <>
+function Earrings({ cards }: InferGetServerSidePropsType<typeof getStaticProps>) {
+    //for(var i = 0; i < Object.keys(cards).length; i++)
+    // {
+    //     console.log(cards[i])
+    // 
 
-                <p> {card.id} </p> <br/>
-                <p> {card.p_name} </p> <br/>
-                <p> {card.p_type} </p> <br/>
+    const image = { image : "/../public/ear-rings/3.jpeg" }
 
-                </>
-          )
-              }
-            </div>
-          </div>
+    return (
+      <>
+      <Image src={image.image} alt='Stone Earring' height={480} width={480} />
+      <div className='flex flex-row justify-center items-center h-screen w-full space-x-3'>
+      {
+        cards.map((card) => 
+        <>
+        <div className='p-2 block items-center bg-white border-gray-200 rounded-lg'>
+        <p>{card.name}</p>
+        <p>{card.description}</p>
+        <p>{card.category}</p>
+        <p>{card.MSRP} {card.SP}</p>
         </div>
-      </section>
-    </>
-  )
+        </>
+        )
+      }
+      </div>
+      </>
+    )
+
 }
-export default earrings
+
+export default Earrings
+
