@@ -2,10 +2,16 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { useState, useEffect } from "react"
+import { useState, useEffect, ReactNode } from "react"
+import { SessionProvider } from "next-auth/react"
+
+interface IProps {
+  children : ReactNode;
+  session : any;
+}
 
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps, {children, session}: IProps) {
   const [cart, setCart] = useState({})
   const [subTotal, setSubTotal] = useState(0)
 
@@ -65,11 +71,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <SessionProvider session={session}>
       <div className="bg-[#EFEFEF] bg-opacity-100">
         <Navbar key={subTotal} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} />
         <Component cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps} />
         <Footer />
       </div>
+      </SessionProvider>
     </>
   );
 }

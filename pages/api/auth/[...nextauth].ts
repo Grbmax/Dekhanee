@@ -3,6 +3,7 @@ import NextAuth, { NextAuthOptions } from "next-auth"
 
 export const authOptions : NextAuthOptions = {
   // Configure one or more authentication providers
+  secret : process.env.AUTH_SECRET,
   providers: [    
     // ...add more providers here
     CredentialsProvider({
@@ -13,8 +14,8 @@ export const authOptions : NextAuthOptions = {
         // e.g. domain, username, password, 2FA token, etc.
         // You can pass any HTML attribute to the <input> tag through the object.
         credentials: {
-          admin_id: { label: "Username", type: "text", placeholder: "jsmith" },
-          admin_pwd: {  label: "Password", type: "password" }
+          username : { label: "Username", type: "text", placeholder: "jsmith" },
+          password : {  label: "Password", type: "password" }
         },
         async authorize(credentials, req) {
           // You need to provide your own logic here that takes the credentials
@@ -23,10 +24,10 @@ export const authOptions : NextAuthOptions = {
           // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
           // You can also use the `req` object to obtain additional parameters
           // (i.e., the request IP address)
-          const res = await fetch("/your/endpoint", {
+          const res = await fetch("http://localhost:3000/api/auth/login", {
             method: 'POST',
             body: JSON.stringify(credentials),
-            headers: { "Content-Type": "/api/auth/login" }
+            headers: { "Content-Type": "application/json" }
           })
           const user = await res.json()
     
@@ -39,6 +40,14 @@ export const authOptions : NextAuthOptions = {
         }
       })
   ],
+
+  session: {
+    strategy : "jwt"
+  },
+
+  pages: {
+    signIn:"/auth/login"
+  }
 }
 
 export default NextAuth(authOptions)

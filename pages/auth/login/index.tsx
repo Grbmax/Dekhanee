@@ -1,3 +1,4 @@
+import { signIn } from 'next-auth/react';
 import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
 
@@ -22,7 +23,28 @@ const resolver: Resolver<FormValues> = async (values) => {
 
 export default function App() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver });
+
   const onSubmit = async (values : any) => {
+    
+    // Debug Block
+
+    // try {
+    //   const { mail_id, pwd } = values
+    //   console.log("Username from auth/login: ", mail_id)
+    //   console.log("Password from auth/login: ", pwd)
+    // } catch (error) {
+    //   console.log(error)
+    // }
+
+    // Session Details
+    const { mail_id, pwd } = values
+    const result = await signIn("credentials",{
+      username : mail_id,
+      password : pwd,
+      redirect : true,
+      callbackUrl : "/"
+    })
+
     try {
         await fetch('/api/auth/login', {
             method: 'POST',
