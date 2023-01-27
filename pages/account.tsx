@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import profilepicture from "../public/profilepicture.png"
 import React from 'react'
-import Navbar from '../components/Navbar'
+
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const account = () => {
   return (
     <>
-    <Navbar/>
+   
     <div className='bg-[#FFFFFF] w-full h-screen'>
 
         <div id='first_section' className='bg-[#EFEFEF] flex w-full h-36 items-center px-16 space-x-16'>
