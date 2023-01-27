@@ -13,7 +13,7 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
 
   const {data:session} = useSession()
   //DEUBG
-  console.log("Session Details: ", session);
+  // console.log("Session Details: ", session);
 
 
   //Cart
@@ -46,13 +46,9 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
           {/* <Link href={""}>Dekhanee</Link> */}
         </div>
         
-        <div className=" text-center w-1/3 text-black text-2xl md:text-4xl lg:text-5xl italic font-semibold">
-          <Link href={""}>Dekhanee</Link>
-        </div>
-
-        <div className="w-1/3 text-right p-5">
+        <div className="w-1/3 p-5">
           
-          <div className="space-x-2">
+          <div className="flex space-x-2 justify-end ">
             {session?.user ? (
               <>
               <p> {session.user.name} </p>
@@ -61,13 +57,13 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
               </button></>
             )
              : (
-              <button onClick={() => signIn()} className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white">
-              Sign Up / Sign In
+              <button onClick={() => signIn()} className="border-2 border-black p-2 rounded-lg hover:bg-black hover:text-white">
+              Register / Login
               </button>
              )}
 
             <button onClick={toggleCart}>
-              <AiOutlineShoppingCart className="h-6 w-6" />
+              <AiOutlineShoppingCart className="h-6 w-6 items-center" />
             </button>
           </div>
 
