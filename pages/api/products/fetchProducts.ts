@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from "next"
 export default async function handler( req: NextApiRequest, res: NextApiResponse ){
     try {
         const results = await sql_query (
-            'SELECT * FROM product_details',
+            'SELECT * FROM products',
         [])
         res.status(200).json(results)
     } catch (e) {
