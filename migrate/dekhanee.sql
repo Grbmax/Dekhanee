@@ -93,14 +93,14 @@ CREATE TABLE product_details (
 -- POPULATE DATABASE
 
 -- USER LOGIN
-INSERT INTO user (u_name, mail_id, u_pwd, ph_no, u_role, createdAt, 
+INSERT INTO user (name, email, u_pwd, mobile, role, createdAt, 
 accessToken) VALUES 
 ("Gaurav Bhat","grbmax@gmail.com","$2a$10$YYcyUZSoVeGEx5q.TF4XG.FeruAA1brInVxHN3eHYcRYxrff.0JhS","8007035533","admin", NOW(), 
 "sTg74712XGIWOFA2zRvyrfUbHABeEAg6UC154LJO5mePsqlTX6L0ftV6GuGj51KgAp7EgWBzGmzHGyinc3p2286eDwhiO2RIxulFZwJLw87i7I7UJc8NACYdRDpgLgvcCNEkiu1MFVpM6OLSQltIVeBEUIWeZyNdGoUGVUqQmkCd0jyYl5FV1n7AyA1dIIIxw3hKa6MXL6eABbUIrBF5k0opZxZVYhsRX4ivWt1FAchBrm70mu3cYwTspNVULl"
 ); 
 -- password 1234
 
-INSERT INTO user (u_name, mail_id, u_pwd, ph_no, u_role, createdAt, 
+INSERT INTO user (name, email, u_pwd, mobile, role, createdAt, 
 accessToken) VALUES 
 ("Rohit Panchal","rohit@gmail.com","$2a$10$uIl/7uLTxiIMqhBGeeKNu./f.KipRjhZjA6GiK6TqtairazEVCwDS","8007035544","user", NOW(), 
 "ZaCuZDFTOqQQftOO58sAOmCcaSfyWHVcNnmVJatheAY19hzrVhxcdKo3LxhrPHmKy1IqRdDIw73W2WkD6QxH2brstuU2qFozDFJMEQNxIpvetNdlZIilSc68S6WaKLJfdAjF4Pv2YdhwcA9toMDwwEvxqVb0FMqBKFPLWVgmKkK3oZ8dJfBNq7A88JYEbvarAEAFPHdouY4SiaDNOIMtoUfkG7xWYXuwM0Rx4xaeTMwILgvUKncNxr8ZYsHbdY"
