@@ -32,13 +32,26 @@ CREATE TABLE inventory (
     ph_no VARCHAR(20)
 );
 
-CREATE TABLE product_list (
+CREATE TABLE products (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    p_name VARCHAR(50) NOT NULL,
-    p_type VARCHAR(50) NOT NULL,
-    p_category VARCHAR(50) NOT NULL,
-    p_inventory_id INT NOT NULL,
-    FOREIGN KEY (p_inventory_id) REFERENCES inventory (id) ON UPDATE CASCADE ON DELETE CASCADE
+    name VARCHAR(50) NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    inventory_id INT NOT NULL,
+    description VARCHAR(100) NOT NULL,
+    MSRP DECIMAL(10,2) NOT NULL,
+    SP DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE product_var (
+    sku INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    p_id INT,
+    color VARCHAR(10) NOT NULL,
+    count INT NOT NULL,
+    inventory_id INT NOT NULL,
+    status TINYINT,
+    FOREIGN KEY (p_id) REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (inventory_id) REFERENCES inventory (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE cart (
@@ -47,7 +60,7 @@ CREATE TABLE cart (
     p_id INT,
     p_qty INT,
     FOREIGN KEY (u_id) REFERENCES user (id),
-    FOREIGN KEY (p_id) REFERENCES product_list (id) ON UPDATE CASCADE ON DELETE CASCADE
+    FOREIGN KEY (p_id) REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE payment_details (
@@ -69,25 +82,6 @@ CREATE TABLE order_history (
     payment_id INT,
     FOREIGN KEY (u_id) REFERENCES user (id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (payment_id) REFERENCES payment_details (id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-
-
--- INVENTORY MANAGEMENT
-
-CREATE TABLE product_details (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    p_sku INT NOT NULL,
-    p_description VARCHAR(100) NOT NULL,
-    p_color VARCHAR(30) NOT NULL,
-    p_MSRP DECIMAL(10,2) NOT NULL,
-    p_SP DECIMAL(10,2) NOT NULL,
-    p_category VARCHAR(20) NOT NULL,
-    p_status TINYINT,
-    p_count INT NOT NULL,
-    p_inventory_id INT NOT NULL,
-    FOREIGN KEY (p_sku) REFERENCES product_list (id) ON UPDATE CASCADE ON DELETE CASCADE, 
-    FOREIGN KEY (p_inventory_id) REFERENCES inventory (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- POPULATE DATABASE
@@ -113,40 +107,59 @@ INSERT INTO inventory (inv_address, city, pincode, ph_no)
 VALUES ('DSK Vishwa','Pune','411041','9850045577');
 
 -- PRODUCT-LIST
-INSERT INTO product_list (p_name, p_type, p_category, p_inventory_id) 
-VALUES ('Peacock Jhumkas','Earrings','Jhumkas','1');
-INSERT INTO product_list (p_name, p_type, p_category, p_inventory_id) 
-VALUES ('Stone Small Studs','Stone Earrings','Studs','1');
-INSERT INTO product_list (p_name, p_type, p_category, p_inventory_id) 
-VALUES ('Black Designer Studs','Earrings','Studs','1');
-INSERT INTO product_list (p_name, p_type, p_category, p_inventory_id) 
-VALUES ('Pink Jhumkas','Earrings','Jhumkas','1');
+INSERT INTO products (name, type, category, inventory_id, 
+description, MSRP, SP) 
+VALUES ('Peacock Jhumkas','Earrings','Jhumkas','1',
+"Beautiful Peacock Jhumkas", "300.00", "200.00");
 
--- PRODUCT-INFORMATION
-INSERT INTO product_details (p_sku, p_description, p_color, p_MSRP, p_SP, p_category, 
-p_status, p_count, p_inventory_id) 
-VALUES ('2','Small Elegant Stone Studded Earrings','Blue','300.00','200.00',
-'Suds','1','10','1');
-INSERT INTO product_details (p_sku, p_description, p_color, p_MSRP, p_SP, p_category, 
-p_status, p_count, p_inventory_id) 
-VALUES ('2','Small Elegant Stone Studded Earrings','Green','300.00','200.00',
-'Studs','1','5','1');
-INSERT INTO product_details (p_sku, p_description, p_color, p_MSRP, p_SP, p_category, 
-p_status, p_count, p_inventory_id) 
-VALUES ('2','Small Elegant Stone Studded Earrings','Red','300.00','200.00',
-'Studs','1','5','1');
+INSERT INTO product_var (sku, p_id, color, count, inventory_id, status) 
+VALUES ("001", "1", "Silver", "10", "1", "1");
 
-INSERT INTO product_details (p_sku, p_description, p_color, p_MSRP, p_SP, p_category, 
-p_status, p_count, p_inventory_id) 
-VALUES ('1','Peacock Design Jhumkas','Blue','400.00','300.00',
-'Jhumkas','1','5','1');
+INSERT INTO product_var (sku, p_id, color, count, inventory_id, status) 
+VALUES ("002", "1", "Bronze", "10", "1", "1");
 
-INSERT INTO product_details (p_sku, p_description, p_color, p_MSRP, p_SP, p_category, 
-p_status, p_count, p_inventory_id) 
-VALUES ('4','Beautiful Pink Designer Jhumkas','Pink','450.00','400.00',
-'Jhumkas','1','5','1');
+INSERT INTO product_var (sku, p_id, color, count, inventory_id, status) 
+VALUES ("003", "1", "Golden", "10", "1", "1");
 
-INSERT INTO product_details (p_sku, p_description, p_color, p_MSRP, p_SP, p_category, 
-p_status, p_count, p_inventory_id) 
-VALUES ('3','Aesthetic Black Designer Studs for everyday use','Pink','150.00','100.00',
-'Jhumkas','-1','0','1');
+
+INSERT INTO products (name, type, category, inventory_id, 
+description, MSRP, SP) 
+VALUES ('Mockingbird Jhumkas','Earrings','Jhumkas','1',
+"Beautiful Peacock Jhumkas", "300.00", "200.00");
+
+INSERT INTO product_var (sku, p_id, color, count, inventory_id, status) 
+VALUES ("004", "2", "Golden", "10", "1", "1");
+
+INSERT INTO product_var (sku, p_id, color, count, inventory_id, status) 
+VALUES ("005", "2", "Silver", "10", "1", "1");
+
+INSERT INTO product_var (sku, p_id, color, count, inventory_id, status) 
+VALUES ("006", "2", "Bronze", "0", "1", "-1");
+
+
+INSERT INTO products (name, type, category, inventory_id, 
+description, MSRP, SP) 
+VALUES ('Stone Studded Earrings','Earrings','Stone Studs','1',
+"Beautiful Stone Studded Jhumkas", "300.00", "200.00");
+
+INSERT INTO product_var (sku, p_id, color, count, inventory_id, status) 
+VALUES ("007", "3", "Blue", "10", "1", "1");
+
+INSERT INTO product_var (sku, p_id, color, count, inventory_id, status) 
+VALUES ("008", "3", "Green", "11", "1", "1");
+
+INSERT INTO product_var (sku, p_id, color, count, inventory_id, status) 
+VALUES ("009", "3", "Black", "9", "1", "1");
+
+INSERT INTO products (name, type, category, inventory_id, 
+description, MSRP, SP) 
+VALUES ('Faux Pearl Studded Earrings','Earrings','Pearl Studs','1',
+"Gorgeous Faux Peal Earrings", "300.00", "200.00");
+
+INSERT INTO product_var (sku, p_id, color, count, inventory_id, status) 
+VALUES ("010", "3", "Silver", "7", "1", "1");
+
+INSERT INTO product_var (sku, p_id, color, count, inventory_id, status) 
+VALUES ("011", "3", "Gold", "9", "1", "1");
+
+
