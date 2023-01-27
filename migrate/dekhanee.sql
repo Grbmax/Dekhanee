@@ -7,11 +7,11 @@ USE dekhanee;
 
 CREATE TABLE user (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    u_name VARCHAR (50),
-    mail_id varchar(50) UNIQUE,
+    name VARCHAR (50),
+    email varchar(50) UNIQUE,
     u_pwd VARCHAR(255) NOT NULL,
-    ph_no VARCHAR(20) NOT NULL,
-    u_role VARCHAR(10) DEFAULT "user",
+    mobile VARCHAR(20) NOT NULL,
+    role VARCHAR(10) DEFAULT "user",
     createdAt DATETIME,
     accessToken VARCHAR(255) NOT NULL UNIQUE,
     address_line1 VARCHAR(100),
@@ -20,7 +20,7 @@ CREATE TABLE user (
     address_state varchar(50),
     pincode varchar(10),
     country varchar(30),
-    alt_ph_no VARCHAR(20),
+    alt_mobile VARCHAR(20),
     dob DATE
 );
 
