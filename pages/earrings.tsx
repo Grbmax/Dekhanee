@@ -56,3 +56,4 @@ function Earrings({ cards }: InferGetServerSidePropsType<typeof getStaticProps>)
 }
 
 export default Earrings
+

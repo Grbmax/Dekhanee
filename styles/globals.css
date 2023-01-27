@@ -5,16 +5,11 @@
 @tailwind utilities;
 
 
-html {
-    scroll-behavior: smooth;
-  }
   
   body {
     background-color: #EFEFEF;
     color: black;
     font-family: 'Playfair Display', serif;
-    line-height: 1.1;
-    letter-spacing: 0em;
     overflow-x: hidden;
   }
   
