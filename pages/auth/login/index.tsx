@@ -9,13 +9,17 @@ type FormValues = {
 
 const resolver: Resolver<FormValues> = async (values) => {
   return {
-    values: values.mail_id ? values : {},
-    errors: !values.mail_id
+    values: values.mail_id || values.pwd ? values : {},
+    errors: !values.mail_id || !values.pwd
       ? {
           mail_id: {
             type: 'required',
-            message: 'This is required.',
+            message: "Email-ID is required.",
           },
+          pwd : {
+            type: 'required',
+            message: "Password is Required.",
+          }
         }
       : {},
   };
@@ -72,7 +76,7 @@ export default function App() {
                         rounded w-full py-2 px-3 text-gray-700 leading-tight 
                         focus:outline-none focus:shadow-outline' 
                         id='username' type='mail' placeholder='user@gmail.com'/>
-                        {errors?.mail_id && <p className='py-1 text-red-500 leading-tight text-xs italic'>{errors.mail_id.message}</p>}
+                        {errors?.mail_id && <p className='py-1 text-red-500 leading-tight text-xs'>{errors.mail_id.message}</p>}
                     </div>
                     <div className='mb-6'>
                         <label className='block text-gray-700 text-sm font-bold mb-2'>
@@ -80,9 +84,9 @@ export default function App() {
                         </label>
                         <input {...register("pwd")}  
                         className='shadow appearance-none border border-red-500 rounded w-full py-2 px-3 
-                        text-gray-700 mb-3 leading-tight focus:outline-none 
-                        focus:shadow-outline' type='password' placeholder='Password'/>
-                        <p className='text-red-500 text-xs italic'>Enter your password.</p>
+                        text-gray-700 leading-tight focus:outline-none focus:shadow-outline' 
+                        id='password' type='password' placeholder='Password'/>
+                        {errors?.pwd && <p className='py-1 text-red-500 leading-tight text-xs'>{errors.pwd.message}</p>}
                     </div>
                     <div className='flex items-center justify-center'>
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
@@ -99,4 +103,3 @@ export default function App() {
     </>
   );
 }
-

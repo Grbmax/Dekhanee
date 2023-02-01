@@ -10,7 +10,6 @@ import DekhaneeLogo from "../public/DekhaneeLogo.png"
 const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
 
   //Session 
-
   const { data: session } = useSession()
 
   //DEUBG
@@ -47,12 +46,20 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
           {/* <Link href={""}>Dekhanee</Link> */}
         </div>
 
-        <div className="w-1/3 p-5">
 
+        <div className="w-1/3 p-5">
           <div className="flex space-x-2 justify-end ">
             {session?.user ? (
-              <>
-                <p> {session.user.name} </p>
+              <> 
+                {session?.user.role === "admin" ? (
+                <>
+                  <Link className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white" href="/admin">Admin Panel</Link>    
+                </> 
+                ):(
+                <>
+                  <Link className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white" href="/user">Your Account</Link>
+                </>
+                )}
                 <button onClick={() => signOut()} className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white">
                   Sign Out
                 </button></>
