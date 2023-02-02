@@ -1,11 +1,29 @@
 import CredentialsProvider from "next-auth/providers/credentials"
 import NextAuth, { NextAuthOptions } from "next-auth"
+import GoogleProvider from "next-auth/providers/google"
+import FacebookProvider from "next-auth/providers/facebook"
 
 export const authOptions : NextAuthOptions = {
   // Configure one or more authentication providers
   secret : process.env.AUTH_SECRET,
   providers: [    
     // ...add more providers here
+
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID as string,
+      clientSecret : process.env.FACEBOOK_CLIENT_SECRET as string,
+    }),
+
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      authorization : {
+        params : {
+          prompt : "login",
+        }
+      }
+    }),
+
     CredentialsProvider({
         // The name to display on the sign in form (e.g. 'Sign in with...')
         name: 'Credentials',
@@ -38,15 +56,16 @@ export const authOptions : NextAuthOptions = {
           // Return null if user data could not be retrieved
           return null
         }
-      })
+      }),
   ],
 
   callbacks:{
-    async jwt({token,user}) {
-      return({...token,...user})
+    async jwt({token,user,account,profile,isNewUser}) {
+      return({...token,...user,...account,...profile, isNewUser})
     },
     async session({session,token,user}) {
       session.user = token;
+      console.log(session)
       return session;
     },
   },
