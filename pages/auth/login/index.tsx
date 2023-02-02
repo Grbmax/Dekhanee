@@ -1,6 +1,10 @@
 import { signIn } from 'next-auth/react';
+import Link from 'next/link';
 import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
+import { FcGoogle } from "react-icons/fc"
+import { BsFacebook } from "react-icons/bs"
+
 
 type FormValues = {
   mail_id: string;
@@ -83,17 +87,50 @@ export default function App() {
                             Password
                         </label>
                         <input {...register("pwd")}  
-                        className='shadow appearance-none border border-red-500 rounded w-full py-2 px-3 
+                        className='shadow appearance-none border rounded w-full py-2 px-3 
                         text-gray-700 leading-tight focus:outline-none focus:shadow-outline' 
                         id='password' type='password' placeholder='Password'/>
                         {errors?.pwd && <p className='py-1 text-red-500 leading-tight text-xs'>{errors.pwd.message}</p>}
                     </div>
-                    <div className='flex items-center justify-center'>
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    <div className='flex flex-col space-y-2 items-center justify-center'>
+                        <button className="w-full border border-gray-500 
+                        hover:bg-gray-700 text-gray-500 font-bold p-2 rounded focus:outline-none focus:shadow-outline" type="submit">
                          Sign In
                         </button>
+                         <div className='flex flex-row space-x-1'>
+                         <p className='text-center text-gray-500 text-sm'>
+                        Don't have an account yet?
+                        </p>
+                        <Link className='text-center text-blue-500 text-sm' href="/auth/signup">
+                        Sign up
+                        </Link>
+                        </div>
+                        <div className='flex flex-row justify-center items-center'>
+                          <hr className='w-10 h-0.5 mr-2 bg-gray-500' />
+                          <span className='text-gray-500 text-sm'>OR</span>
+                          <hr className='w-10 h-0.5 ml-2 bg-gray-500' />
+                        </div>
+
+                        <button className="w-full items-center border border-gray-500 hover:bg-gray-700 
+                        text-gray-500 font-bold text-center p-2 rounded 
+                        focus:outline-none focus:shadow-outline" type="submit">
+                          <span className='flex items-center justify-center'>
+                            <FcGoogle className='text-xl mr-2'/>
+                            Google
+                          </span>
+                        </button>    
+
+                        <button className="w-full items-center border border-gray-500 hover:bg-gray-700 
+                        text-gray-500 font-bold text-center p-2 rounded 
+                        focus:outline-none focus:shadow-outline" type="submit">
+                          <span className='flex items-center justify-center'>
+                            <BsFacebook className='text-xl mr-2'/>
+                            Facebook
+                          </span>
+                        </button> 
                     </div>
-                    <br></br>
+
+                    <br/>
                     <p className='text-center text-gray-500 text-xs'>
                  &copy;Dekkhanee : The Beautiful. All rights reserved. 
                 </p> 

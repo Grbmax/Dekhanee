@@ -7,12 +7,15 @@ USE dekhanee;
 
 CREATE TABLE user (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR (50),
-    email varchar(50) UNIQUE,
+    name VARCHAR (255),
+    email varchar(255) UNIQUE,
     u_pwd VARCHAR(255) NOT NULL,
+    google_id VARCHAR(255) NOT NULL,
+    facebook_id VARCHAR(255) NOT NULL,
     mobile VARCHAR(20) NOT NULL,
     role VARCHAR(10) DEFAULT "user",
-    createdAt DATETIME,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
     accessToken VARCHAR(255) NOT NULL UNIQUE,
     address_line1 VARCHAR(100),
     address_line2 VARCHAR(100),
@@ -43,7 +46,7 @@ CREATE TABLE products (
     SP DECIMAL(10,2) NOT NULL
 );
 
-CREATE TABLE products_var (
+CREATE TABLE product_variants (
     sku INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     p_id INT,
     color VARCHAR(10) NOT NULL,
@@ -60,7 +63,7 @@ CREATE TABLE img_src (
     sku INT NOT NULL,
     path VARCHAR(100) NOT NUll,
     FOREIGN KEY (p_id) REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (sku) REFERENCES products_var (sku) ON UPDATE CASCADE ON DELETE CASCADE
+    FOREIGN KEY (sku) REFERENCES product_variants (sku) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE cart (
@@ -68,6 +71,7 @@ CREATE TABLE cart (
     u_id INT,
     p_id INT,
     p_qty INT,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (u_id) REFERENCES user (id),
     FOREIGN KEY (p_id) REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -77,8 +81,7 @@ CREATE TABLE payment_details (
     cart_id INT,
     amount DECIMAL(10,2),
     payment_status VARCHAR(20),
-    createdAt DATETIME,
-    modifiedAt DATETIME,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (cart_id) REFERENCES cart (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -86,8 +89,7 @@ CREATE TABLE order_history (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     u_id INT,
     total DECIMAL(10,2),
-    createdAt DATETIME,
-    modifiedAt DATETIME,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     payment_id INT,
     FOREIGN KEY (u_id) REFERENCES user (id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (payment_id) REFERENCES payment_details (id) ON UPDATE CASCADE ON DELETE CASCADE
@@ -121,15 +123,15 @@ description, MSRP, SP)
 VALUES ('Peacock Jhumkas','Earrings','Jhumkas','1',
 "Beautiful Peacock Jhumkas", "300.00", "200.00");
 
-INSERT INTO products_var (sku, p_id, color, count, inventory_id, status) 
+INSERT INTO product_variants (sku, p_id, color, count, inventory_id, status) 
 VALUES ("001", "1", "Silver", "10", "1", "1");
 INSERT INTO img_src (p_id, sku, path) VALUES ("1","001","public/products/ear-rings/Jhumkas/1.jpeg");
 
-INSERT INTO products_var (sku, p_id, color, count, inventory_id, status) 
+INSERT INTO product_variants (sku, p_id, color, count, inventory_id, status) 
 VALUES ("002", "1", "Bronze", "10", "1", "1");
 INSERT INTO img_src (p_id, sku, path) VALUES ("1","002","public/products/ear-rings/Jhumkas/2.jpeg");
 
-INSERT INTO products_var (sku, p_id, color, count, inventory_id, status) 
+INSERT INTO product_variants (sku, p_id, color, count, inventory_id, status) 
 VALUES ("003", "1", "Golden", "10", "1", "1");
 INSERT INTO img_src (p_id, sku, path) VALUES ("1","003","public/products/ear-rings/Jhumkas/3.jpeg");
 
@@ -141,15 +143,15 @@ description, MSRP, SP)
 VALUES ('Mockingbird Jhumkas','Earrings','Jhumkas','1',
 "Beautiful Peacock Jhumkas", "300.00", "200.00");
 
-INSERT INTO products_var (sku, p_id, color, count, inventory_id, status) 
+INSERT INTO product_variants (sku, p_id, color, count, inventory_id, status) 
 VALUES ("004", "2", "Golden", "10", "1", "1");
 INSERT INTO img_src (p_id, sku, path) VALUES ("2","004","public/products/ear-rings/Jhumkas/4.jpeg");
 
-INSERT INTO products_var (sku, p_id, color, count, inventory_id, status) 
+INSERT INTO product_variants (sku, p_id, color, count, inventory_id, status) 
 VALUES ("005", "2", "Silver", "10", "1", "1");
 INSERT INTO img_src (p_id, sku, path) VALUES ("2","005","public/products/ear-rings/Jhumkas/5.jpeg");
 
-INSERT INTO products_var (sku, p_id, color, count, inventory_id, status) 
+INSERT INTO product_variants (sku, p_id, color, count, inventory_id, status) 
 VALUES ("006", "2", "Bronze", "0", "1", "-1");
 INSERT INTO img_src (p_id, sku, path) VALUES ("2","006","public/products/ear-rings/Jhumkas/6.jpeg");
 
@@ -160,15 +162,15 @@ description, MSRP, SP)
 VALUES ('Stone Studded Earrings','Earrings','Stone Studs','1',
 "Beautiful Stone Studded Jhumkas", "300.00", "200.00");
 
-INSERT INTO products_var (sku, p_id, color, count, inventory_id, status) 
+INSERT INTO product_variants (sku, p_id, color, count, inventory_id, status) 
 VALUES ("007", "3", "Blue", "10", "1", "1");
 INSERT INTO img_src (p_id, sku, path) VALUES ("3","007","public/products/ear-rings/StoneStuds/7.jpeg");
 
-INSERT INTO products_var (sku, p_id, color, count, inventory_id, status) 
+INSERT INTO product_variants (sku, p_id, color, count, inventory_id, status) 
 VALUES ("008", "3", "Green", "11", "1", "1");
 INSERT INTO img_src (p_id, sku, path) VALUES ("3","008","public/products/ear-rings/StoneStuds/8.jpeg");
 
-INSERT INTO products_var (sku, p_id, color, count, inventory_id, status) 
+INSERT INTO product_variants (sku, p_id, color, count, inventory_id, status) 
 VALUES ("009", "3", "Black", "9", "1", "1");
 INSERT INTO img_src (p_id, sku, path) VALUES ("3","009","public/products/ear-rings/StoneStuds/9.jpeg");
 
@@ -179,11 +181,11 @@ VALUES ('Faux Pearl Studded Earrings','Earrings','Pearl Studs','1',
 "Gorgeous Faux Peal Earrings", "300.00", "200.00");
 
 
-INSERT INTO products_var (sku, p_id, color, count, inventory_id, status) 
+INSERT INTO product_variants (sku, p_id, color, count, inventory_id, status) 
 VALUES ("010", "4", "Silver", "7", "1", "1");
 INSERT INTO img_src (p_id, sku, path) VALUES ("4","010","public/products/ear-rings/PearlStuds/10.jpeg");
 
-INSERT INTO products_var (sku, p_id, color, count, inventory_id, status) 
+INSERT INTO product_variants (sku, p_id, color, count, inventory_id, status) 
 VALUES ("011", "4", "Gold", "9", "1", "1");
 INSERT INTO img_src (p_id, sku, path) VALUES ("4","011","public/products/ear-rings/PearlStuds/11.jpeg");
 
