@@ -97,7 +97,7 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
               })}
             </ol>
             <div className='font-bold text-start'>Subtotal: ₹{subTotal}</div>
-            <Link href={'/checkout'}><button className="flex mt-16 border-0 border-black py-2 px-8 focus:outline-none">Checkout</button></Link>
+            <Link href={'/payflow/checkout'}><button className="flex mt-16 border-0 border-black py-2 px-8 focus:outline-none">Checkout</button></Link>
             <button onClick={clearCart} className="flex mt-16 border-2 border-black py-2 px-8 focus:outline-none">clear cart</button>
           </div>
 
