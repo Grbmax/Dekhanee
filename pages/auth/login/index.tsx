@@ -81,7 +81,8 @@ export default function App() {
       <div className='flex flex-col h-screen justify-start items-center'>
         <h1 className='text-3xl block font-medium italic mt-28 mb-5'>LOGIN</h1>
         {formState === "login" ? (
-          <div className='w-full space-y-4 max-w-xs bg-[#F4E9CD] shadow-md rounded px-8 pt-6 pb-8 mb-4 '>
+          <div className='w-full space-y-4 max-w-xs bg-[#F4E9CD] shadow-md rounded 
+          px-8 pt-6 pb-8 mb-4 '>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className='mb-4'>
                 <label className='block text-gray-700 text-sm font-bold mb-2'>
@@ -92,7 +93,8 @@ export default function App() {
                         rounded w-full py-2 px-3 text-gray-700 leading-tight 
                         focus:outline-none focus:shadow-outline'
                   id='username' type='mail' placeholder='user@gmail.com' />
-                {errors?.mail_id && <p className='py-1 text-red-500 leading-tight text-xs'>{errors.mail_id.message}</p>}
+                {errors?.mail_id && <p className='py-1 text-red-500 leading-tight 
+                text-xs'>{errors.mail_id.message}</p>}
               </div>
               <div className='mb-2'>
                 <label className='block text-gray-700 text-sm font-bold mb-2'>
@@ -102,15 +104,21 @@ export default function App() {
                   className='shadow appearance-none border rounded w-full py-2 px-3 
                         text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                   id='password' type='password' placeholder='Password' />
-                {errors?.pwd && <p className='py-1 text-red-500 leading-tight text-xs'>{errors.pwd.message}</p>}
+                {errors?.pwd && <p className='py-1 text-red-500 leading-tight 
+                text-xs'>{errors.pwd.message}</p>}
               </div>
               <div className='flex flex-col mb-2 items-end w-full'>
-                <button className='text-[14px] text-blue-500' onClick={handleForgotPassword}>Forgot Password?</button>
+                <button className='text-[14px] text-blue-500' 
+                onClick={handleForgotPassword}>Forgot Password?</button>
               </div>
               <div className='flex flex-col space-y-2 items-center justify-center'>
-                <button className="w-full border border-gray-500 
-                        hover:bg-gray-700 text-gray-500 font-bold p-2 rounded focus:outline-none focus:shadow-outline" type="submit">
+                <button className="group relative p-1 w-full overflow-hidden rounded
+                bg-white " type="submit">
+                  <div className='absolute inset-0 w-2 bg-gray-700 transition-all
+                  duration-[250ms] ease-out group-hover:w-full'></div>
+                  <span className='relative text-gray-500 group-hover:text-white'>
                   Sign In
+                  </span>
                 </button>
                 <div className='flex flex-row space-x-1'>
                   <p className='text-center text-gray-500 text-sm'>
@@ -128,21 +136,25 @@ export default function App() {
               </div>
             </form>
 
-            <button onClick={handleGoogleSignIn} className="w-full items-center border border-gray-500 hover:bg-gray-700 
-                text-gray-500 font-bold text-center p-2 rounded 
-                  focus:outline-none focus:shadow-outline" type="submit">
-              <span className='flex items-center justify-center'>
+            <button onClick={handleGoogleSignIn} className="group relative p-1
+            w-full overflow-hidden rounded bg-white" type="submit">
+            <div className='absolute inset-0 w-2 bg-gray-700 transition-all
+            duration-[250ms] ease-out group-hover:w-full'></div>
+              <span className='flex items-center relative text-gray-500
+              group-hover:text-white justify-center'>
                 <FcGoogle className='text-xl mr-2' />
-                Google
+                  Google
               </span>
             </button>
 
-            <button onClick={handleFacebookSignIn} className="w-full items-center border border-gray-500 hover:bg-gray-700 
-                text-gray-500 font-bold text-center p-2 rounded 
-                  focus:outline-none focus:shadow-outline" type="submit">
-              <span className='flex items-center justify-center'>
+            <button onClick={handleFacebookSignIn} className="group relative p-1
+            w-full overflow-hidden rounded bg-white" type="submit">
+            <div className='absolute inset-0 w-2 bg-gray-700 transition-all
+            duration-[250ms] ease-out group-hover:w-full'></div>
+              <span className='flex items-center relative text-gray-500
+              group-hover:text-white justify-center'>
                 <BsFacebook className='text-xl mr-2' />
-                Facebook
+                  Facebook
               </span>
             </button>
 
@@ -150,7 +162,8 @@ export default function App() {
 
           </div>
         ) : (
-          <div className='w-full space-y-4 max-w-xs bg-[#F4E9CD] shadow-md rounded px-8 pt-6 pb-8 mb-4 '>
+          <div className='w-full space-y-4 max-w-xs bg-[#F4E9CD] shadow-md 
+          rounded px-8 pt-6 pb-8 mb-4 '>
             <form>
               <div className='mb-2'>
                 <h2 className='text-center mb-2'>We will send you a link to reset your password.</h2>
@@ -165,10 +178,12 @@ export default function App() {
               </div>
               
               <div>
-              <button className="group relative p-1 w-full overflow-hidden rounded bg-white text-lg shadow">
-              <div className="absolute inset-0 w-3 bg-gray-700 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+              <button className="group relative p-1 w-full overflow-hidden rounded bg-white 
+              text-lg shadow">
+              <div className="absolute inset-0 w-2 bg-gray-700 transition-all 
+              duration-[250ms] ease-out group-hover:w-full"></div>
               <span className="relative text-gray-500 group-hover:text-white">
-              Hover me!</span>
+              Submit</span>
               </button>
               </div>
             </form>
