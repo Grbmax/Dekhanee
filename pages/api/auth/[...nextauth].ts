@@ -2,6 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import NextAuth, { NextAuthOptions } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import FacebookProvider from "next-auth/providers/facebook"
+import { METHODS } from "http"
 
 export const authOptions : NextAuthOptions = {
   // Configure one or more authentication providers
@@ -12,6 +13,11 @@ export const authOptions : NextAuthOptions = {
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID as string,
       clientSecret : process.env.FACEBOOK_CLIENT_SECRET as string,
+      authorization : {
+        params : {
+          authType : "reauthenticate",
+        }
+      }
     }),
 
     GoogleProvider({
@@ -61,6 +67,11 @@ export const authOptions : NextAuthOptions = {
 
   callbacks:{
     async jwt({token,user,account,profile,isNewUser}) {
+      const response = await fetch("http://localhost:3000/api/auth/register",{
+        method: 'POST',
+        body: JSON.stringify({token, user, account, profile, isNewUser }),
+        headers: { "Content-Type" : "application/json" }
+      });
       return({...token,...user,...account,...profile, isNewUser})
     },
     async session({session,token,user}) {
