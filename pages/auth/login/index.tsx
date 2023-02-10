@@ -78,8 +78,8 @@ export default function App() {
 
   return (
     <>
-      <div className='flex flex-col h-screen justify-start items-center'>
-        <h1 className='text-3xl block font-medium italic mt-28 mb-5'>LOGIN</h1>
+      <div className=' flex flex-col justify-start items-center '>
+        <h1 className='text-3xl block font-medium italic m-auto mb-5'>LOGIN</h1>
         {formState === "login" ? (
           <div className='w-full space-y-4 max-w-xs bg-[#F4E9CD] shadow-md rounded 
           px-8 pt-6 pb-8 mb-4 '>
@@ -111,11 +111,11 @@ export default function App() {
                 <button className='text-[14px] text-blue-500' 
                 onClick={handleForgotPassword}>Forgot Password?</button>
               </div>
-              <div className='flex flex-col space-y-2 items-center justify-center'>
-                <button className="group relative p-1 w-full overflow-hidden rounded
+              <div className='flex flex-col space-y-2 items-center justify-center '>
+                <button className="group  relative p-1 w-full overflow-hidden rounded
                 bg-white " type="submit">
                   <div className='absolute inset-0 w-2 bg-gray-700 transition-all
-                  duration-[250ms] ease-out group-hover:w-full'></div>
+                  duration-[250ms] ease-out group-hover:w-full '></div>
                   <span className='relative text-gray-500 group-hover:text-white'>
                   Sign In
                   </span>

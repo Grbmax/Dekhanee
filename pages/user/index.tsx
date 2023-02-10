@@ -26,12 +26,10 @@ const account = () => {
           </div>
           </Link>
 
-          <Link href="/user/address">
           <div id='yourAddresses' className='bg-[#FFFFFF] hover:bg-[#EFEFEF] box-content h-24 w-10/12 border-black border m-auto flex items-center justify-between'>
             <p className='text-xl p-8'>Your Addresses</p>
             <AiOutlineArrowRight className='h-8 w-8 mx-8'/>
           </div>
-          </Link>
           
           <div id='paymentOptions' className='bg-[#FFFFFF] hover:bg-[#EFEFEF] box-content h-24 w-10/12 border-black border m-auto flex items-center justify-between'>
             <p className='text-xl p-8'>Payment Options</p>

@@ -7,7 +7,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import DekhaneeLogo from "../public/DekhaneeLogo.png"
 
-const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
+const Navbar = (/* { cart, addToCart, removeFromCart, clearCart, subTotal } */) => {
 
   //Session 
   const { data: session } = useSession()
@@ -18,7 +18,7 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
 
   //Cart
 
-  const ref = useRef<HTMLInputElement | null>(null);
+/*   const ref = useRef<HTMLInputElement | null>(null);
   const toggleCart = () => {
     if (!ref.current) return;
     if (ref.current.classList.contains('translate-x-full')) {
@@ -30,14 +30,14 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
       ref.current.classList.add('translate-x-full')
     }
   }
-
+ */
   return (
     <>
 
 
       <div className="flex items-center justify-center shadow-md bg-[#F4E9CD] w-full text-black z-10">
 
-        <div className=" w-1/3">
+        <div className=" w-1/3 ">
           <Hamburger />
         </div>
 
@@ -50,35 +50,56 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
         <div className="w-1/3 p-5">
           <div className="flex space-x-2 justify-end ">
             {session?.user ? (
-              <> 
+              <>
                 {session?.user.role === "admin" ? (
-                <>
-                  <Link className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white" href="/admin">Admin Panel</Link>    
-                </> 
-                ):(
-                <>
-                  <Link className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white" href="/user">Your Account</Link>
-                </>
+                  <>
+                    <Link className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white" href="/admin">Admin Panel</Link>
+                  </>
+                ) : (
+                  <>
+                    <Link className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white" href="/user">Your Account</Link>
+                  </>
                 )}
-                <button onClick={() => signOut()} className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white">
+               {/*  <button onClick={() => signOut()} className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white">
                   Sign Out
-                </button></>
+                </button> */}
+                {/* <button onClick={() => signOut()} className="group relative p-1 w-36 overflow-hidden rounded
+                bg-white " type="submit">
+                  <div className='absolute inset-0 w-2 bg-gray-700 transition-all
+                  duration-[250ms] ease-out group-hover:w-full'></div>
+                  <span className='relative text-gray-500 group-hover:text-white'>
+                  Sign Out
+                  </span>
+                </button> */}
+              </>
             )
               : (
-                <button onClick={() => signIn()} className="border-2 border-black p-2 rounded-lg hover:bg-black hover:text-white">
-                  Register / Login
-                </button>
+                <></>
+                /*  <button onClick={() => signIn()} className="border-2 border-black p-2 rounded-lg hover:bg-black hover:text-white ">
+                    <div className='absolute inset-0 w-2 bg-gray-700 transition-all
+                   duration-[250ms] ease-out group-hover:w-full'></div>
+                   Register / Login
+                 </button> */
+             /*    <button onClick={() => signIn()} className="group relative p-1 w-36 overflow-hidden rounded
+                bg-white " type="submit">
+                  <div className='absolute inset-0 w-2 bg-gray-700 transition-all
+                  duration-[250ms] ease-out group-hover:w-full'></div>
+                  <span className='relative text-gray-500 group-hover:text-white'>
+                    Register / Login
+                  </span>
+                </button> */
               )}
 
-            <button onClick={toggleCart}>
-              <AiOutlineShoppingCart className="h-6 w-6 items-center" />
-            </button>
+            <Link href={'/cart'}>
+              <AiOutlineShoppingCart className="h-6 w-6 items-center text-gray-500 hover:text-black" />
+            </Link>
+
           </div>
 
 
-          <div ref={ref} className={`sideCart w-72 h-[100vh] absolute top-0 right-0 bg-[#F4E9CD]  p-10 transform transition-transform ${Object.keys(cart).length !== 0 ? 'translate-x-full': 'translate-x-0'}`}>
+          {/* { <div ref={ref} className={`sideCart w-72 h-[100vh] absolute top-0 right-0 bg-[#F4E9CD]  p-10 transform transition-transform ${Object.keys(cart).length !== 0 ? 'translate-x-full': 'translate-x-0'}`}> */}
           {/* <div ref={ref} className={`sideCart w-72 h-[100vh] absolute top-0 right-0 bg-[#F4E9CD] px-8 py-10 transform transition-transform translate-x-full`}>
- */}            <h2 className="font-bold text-xl text-center"> Shoping Cart </h2>
+ */}            {/* <h2 className="font-bold text-xl text-center"> Shoping Cart </h2>
             <span onClick={toggleCart} className="absolute top-5 right-2 cursor-pointer text-2xl"><AiOutlineCloseCircle /></span>
             <ol className="list-decimal font-semibold">
               {Object.keys(cart).length == 0 &&
@@ -99,12 +120,12 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
             <div className='font-bold text-start'>Subtotal: ₹{subTotal}</div>
             <Link href={'/payflow/checkout'}><button className="flex mt-16 border-0 border-black py-2 px-8 focus:outline-none">Checkout</button></Link>
             <button onClick={clearCart} className="flex mt-16 border-2 border-black py-2 px-8 focus:outline-none">clear cart</button>
-          </div>
-
+          </div>}
+ */}
         </div>
       </div>
     </>
   );
 };
-/* dfgdfgdfg samp */
+
 export default Navbar;

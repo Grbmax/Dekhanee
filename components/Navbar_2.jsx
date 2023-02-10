@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { Link } from "react-scroll";
+import { link } from "react-scroll";
 import Image from "next/image";
 import Logo from "../public/DekhaneeLogo.png";
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 
 
@@ -27,7 +28,7 @@ function Navbar_2() {
 							</div>
 							<div className="hidden md:block">
 								<div className="ml-10 flex items-baseline space-x-4">
-									<Link
+									<link
 										activeClass="Home"
 										to="about"
 										smooth={true}
@@ -36,8 +37,8 @@ function Navbar_2() {
 										className="cursor-pointer text-blue-600 font-semibold px-3 py-2 text-md hover:font-black"
 									>
 										Home
-									</Link>
-									<Link
+									</link>
+									<link
 										activeClass="about"
 										to="about"
 										smooth={true}
@@ -46,8 +47,9 @@ function Navbar_2() {
 										className="cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium"
 									>
 										About
-									</Link>
-									<Link
+									</link>
+									<link
+										href = "/earring"
 										activeClass="work"
 										to="work"
 										smooth={true}
@@ -56,9 +58,9 @@ function Navbar_2() {
 										className="cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium"
 									>
 										Product
-									</Link>
+									</link>
 
-									<Link
+									<link
 										activeClass="Services"
 										to="work"
 										smooth={true}
@@ -67,17 +69,17 @@ function Navbar_2() {
 										className="cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium"
 									>
 										Track My Order
-									</Link>
+									</link>
 									<div className="flex space-x-2 justify-end ">
 										{session?.user ? (
 											<>
 												{session?.user.role === "admin" ? (
 													<>
-														<Link className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white" href="/admin">Admin Panel</Link>
+														<link className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white" href="/admin">Admin Panel</link>
 													</>
 												) : (
 													<>
-														<Link className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white" href="/user">Your Account</Link>
+														<link className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white" href="/user">Your Account</link>
 													</>
 												)}
 												<button onClick={() => signOut()} className="border-2 border-black p-1 rounded-lg hover:bg-black hover:text-white">
@@ -90,11 +92,13 @@ function Navbar_2() {
 												</button>
 											)}
 									</div>
+									
 									<div className="flex items-center">
 
 										<AiOutlineShoppingCart className="text-2xl " />
 
 									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -165,7 +169,7 @@ function Navbar_2() {
 								ref={ref}
 								className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3"
 							>
-								<Link
+								<link
 									href="/home"
 									activeClass="home"
 									to="home"
@@ -175,8 +179,8 @@ function Navbar_2() {
 									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									Home
-								</Link>
-								<Link
+								</link>
+								<link
 									href="/about"
 									activeClass="about"
 									to="about"
@@ -186,9 +190,9 @@ function Navbar_2() {
 									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									About
-								</Link>
+								</link>
 
-								<Link
+								<link
 									href="/work"
 									activeClass="work"
 									to="work"
@@ -198,8 +202,8 @@ function Navbar_2() {
 									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									Projects
-								</Link>
-								<Link
+								</link>
+								<link
 									href="/services"
 									activeClass="services"
 									to="services"
@@ -209,9 +213,9 @@ function Navbar_2() {
 									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									Services
-								</Link>
+								</link>
 
-								<Link
+								<link
 									href="/contact"
 									activeClass="work"
 									to="work"
@@ -221,8 +225,8 @@ function Navbar_2() {
 									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									Contact
-								</Link>
-								<Link
+								</link>
+								<link
 									href="/contact"
 									activeClass="work"
 									to="work"
@@ -232,7 +236,7 @@ function Navbar_2() {
 									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									Logout
-								</Link>
+								</link>
 							</div>
 						</div>
 					)}
