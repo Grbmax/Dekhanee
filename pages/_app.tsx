@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useState, useEffect, ReactNode } from "react"
 import { SessionProvider } from "next-auth/react"
+import Navbar_2 from "../components/Navbar_2";
 
 interface IProps {
   children : ReactNode;
@@ -73,7 +74,9 @@ function MyApp({ Component, pageProps }: AppProps, {children, session}: IProps) 
     <>
       <SessionProvider session={session}>
       <div className="bg-[#EFEFEF] bg-opacity-100">
-        <Navbar key={subTotal} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} />
+        
+         <Navbar_2 key={subTotal} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal}/> 
+       {/*  <Navbar key={subTotal} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} /> */}
         <Component cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps} />
         <Footer />
       </div>
