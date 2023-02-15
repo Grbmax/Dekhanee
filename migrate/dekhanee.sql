@@ -10,8 +10,8 @@ CREATE TABLE users (
   name VARCHAR (255),
   email varchar(255) UNIQUE,
   u_pwd VARCHAR(255) NOT NULL,
-  google_id VARCHAR(255),
-  facebook_id VARCHAR(255),
+  google_id VARCHAR(255) NOT NULL,
+  facebook_id VARCHAR(255) NOT NULL,
   mobile VARCHAR(20) NOT NULL,
   alt_mobile VARCHAR(20),
   role VARCHAR(10) DEFAULT "user",
@@ -32,7 +32,7 @@ CREATE TABLE addresses (
   state VARCHAR(255),
   country VARCHAR(255),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users(id)
+  FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 CREATE TABLE inventory (
